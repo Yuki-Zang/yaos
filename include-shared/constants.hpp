@@ -2,19 +2,14 @@
 
 #include <crypto++/cryptlib.h>
 #include <crypto++/integer.h>
+#include <crypto++/secblock.h>
 
-// In bytes
-#define SALT_SIZE 16  // 16 bytes = 128 bits
-#define PEPPER_SIZE 1 // 1 byte   = 8 bits
+#define LABEL_LENGTH 16     /* 128 bits */
+#define LABEL_TAG_LENGTH 16 /* 128 bits */
 
-// In bits
 #define EG_KEYSIZE 1024
-#define RSA_KEYSIZE 2048
-#define LAMBDA 128
 
 // Primes from https://www.rfc-editor.org/rfc/rfc5114#page-4
-// Specifically, "2048-bit MODP Group with 256-bit Prime Order Subgroup"
-// Note crucially that DL_Q is prime
 const CryptoPP::Integer DL_P =
     CryptoPP::Integer("0x87A8E61DB4B6663CFFBBD19C651959998CEEF608660DD0F2"
                       "5D2CEED4435E3B00E00DF8F1D61957D4FAF7DF4561B2AA30"
@@ -41,3 +36,6 @@ const CryptoPP::Integer DL_G =
                       "5E2327CFEF98C582664B4C0F6CC41659");
 const CryptoPP::Integer DL_Q = CryptoPP::Integer(
     "0x8CF83642A709A097B447997640129DA299B1A47D1EB3750BA308B0FE64F5FBD3");
+
+const CryptoPP::SecByteBlock DUMMY_RHS =
+    CryptoPP::SecByteBlock(NULL, LABEL_LENGTH);

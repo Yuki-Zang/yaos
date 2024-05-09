@@ -126,12 +126,11 @@ int HMACTagged_Wrapper::deserialize(std::vector<unsigned char> &data) {
 // ================================================
 
 /**
- * serialize UserToServer_DHPublicValue_Message.
+ * serialize DHPublicValue_Message.
  */
-void UserToServer_DHPublicValue_Message::serialize(
-    std::vector<unsigned char> &data) {
+void DHPublicValue_Message::serialize(std::vector<unsigned char> &data) {
   // Add message type.
-  data.push_back((char)MessageType::UserToServer_DHPublicValue_Message);
+  data.push_back((char)MessageType::DHPublicValue_Message);
 
   // Add fields.
   std::string public_string = byteblock_to_string(this->public_value);
@@ -139,12 +138,11 @@ void UserToServer_DHPublicValue_Message::serialize(
 }
 
 /**
- * deserialize UserToServer_DHPublicValue_Message.
+ * deserialize DHPublicValue_Message.
  */
-int UserToServer_DHPublicValue_Message::deserialize(
-    std::vector<unsigned char> &data) {
+int DHPublicValue_Message::deserialize(std::vector<unsigned char> &data) {
   // Check correct message type.
-  assert(data[0] == MessageType::UserToServer_DHPublicValue_Message);
+  assert(data[0] == MessageType::DHPublicValue_Message);
 
   // Get fields.
   std::string public_string;
@@ -154,406 +152,236 @@ int UserToServer_DHPublicValue_Message::deserialize(
   return n;
 }
 
-/**
- * serialize ServerToUser_DHPublicValue_Message.
- */
-void ServerToUser_DHPublicValue_Message::serialize(
+// ================================================
+// OBLIVIOUS TRANSFER
+// ================================================
+
+void SenderToReceiver_OTPublicValue_Message::serialize(
     std::vector<unsigned char> &data) {
   // Add message type.
-  data.push_back((char)MessageType::ServerToUser_DHPublicValue_Message);
+  data.push_back((char)MessageType::SenderToReceiver_OTPublicValue_Message);
 
   // Add fields.
-  std::string server_public_string =
-      byteblock_to_string(this->server_public_value);
-  std::string user_public_string = byteblock_to_string(this->user_public_value);
-  put_string(server_public_string, data);
-  put_string(user_public_string, data);
-  put_string(this->server_signature, data);
+  std::string public_integer = byteblock_to_string(this->public_value);
+  put_string(public_integer, data);
 }
 
-/**
- * deserialize ServerToUser_DHPublicValue_Message.
- */
-int ServerToUser_DHPublicValue_Message::deserialize(
+int SenderToReceiver_OTPublicValue_Message::deserialize(
     std::vector<unsigned char> &data) {
   // Check correct message type.
-  assert(data[0] == MessageType::ServerToUser_DHPublicValue_Message);
+  assert(data[0] == MessageType::SenderToReceiver_OTPublicValue_Message);
 
   // Get fields.
-  std::string server_public_string;
-  std::string user_public_string;
+  std::string public_integer;
   int n = 1;
-  n += get_string(&server_public_string, data, n);
-  n += get_string(&user_public_string, data, n);
-  n += get_string(&this->server_signature, data, n);
-  this->server_public_value = string_to_byteblock(server_public_string);
-  this->user_public_value = string_to_byteblock(user_public_string);
+  n += get_string(&public_integer, data, n);
+  this->public_value = string_to_byteblock(public_integer);
+  return n;
+}
+
+void ReceiverToSender_OTPublicValue_Message::serialize(
+    std::vector<unsigned char> &data) {
+  // Add message type.
+  data.push_back((char)MessageType::ReceiverToSender_OTPublicValue_Message);
+
+  // Add fields.
+  std::string public_integer = byteblock_to_string(this->public_value);
+  put_string(public_integer, data);
+}
+
+int ReceiverToSender_OTPublicValue_Message::deserialize(
+    std::vector<unsigned char> &data) {
+  // Check correct message type.
+  assert(data[0] == MessageType::ReceiverToSender_OTPublicValue_Message);
+
+  // Get fields.
+  std::string public_integer;
+  int n = 1;
+  n += get_string(&public_integer, data, n);
+  this->public_value = string_to_byteblock(public_integer);
+  return n;
+}
+
+void SenderToReceiver_OTEncryptedValues_Message::serialize(
+    std::vector<unsigned char> &data) {
+  // Add message type.
+  data.push_back((char)MessageType::SenderToReceiver_OTEncryptedValues_Message);
+
+  // Add fields.
+  put_string(this->e0, data);
+  put_string(this->e1, data);
+
+  std::string iv0 = byteblock_to_string(this->iv0);
+  put_string(iv0, data);
+  std::string iv1 = byteblock_to_string(this->iv1);
+  put_string(iv1, data);
+}
+
+int SenderToReceiver_OTEncryptedValues_Message::deserialize(
+    std::vector<unsigned char> &data) {
+  // Check correct message type.
+  assert(data[0] == MessageType::SenderToReceiver_OTEncryptedValues_Message);
+
+  // Get fields.
+  int n = 1;
+  n += get_string(&this->e0, data, n);
+  n += get_string(&this->e1, data, n);
+
+  std::string iv0;
+  n += get_string(&iv0, data, n);
+  this->iv0 = string_to_byteblock(iv0);
+
+  std::string iv1;
+  n += get_string(&iv1, data, n);
+  this->iv1 = string_to_byteblock(iv1);
   return n;
 }
 
 // ================================================
-// VOTER <==> REGISTRAR
+// GARBLED CIRCUITS
 // ================================================
 
-/**
- * serialize VoterToRegistrar_Register_Message.
- */
-void VoterToRegistrar_Register_Message::serialize(
+void GarblerToEvaluator_GarbledTables_Message::serialize(
     std::vector<unsigned char> &data) {
   // Add message type.
-  data.push_back((char)MessageType::VoterToRegistrar_Register_Message);
+  data.push_back((char)MessageType::GarblerToEvaluator_GarbledTables_Message);
 
-  // Add fields.
-  put_string(this->id, data);
-  put_integer(this->vote, data);
+  // Put length of garbled tables.
+  int idx = data.size();
+  data.resize(idx + sizeof(size_t));
+  size_t num_tables = this->garbled_tables.size();
+  std::memcpy(&data[idx], &num_tables, sizeof(size_t));
+
+  // Put each table.
+  for (int i = 0; i < num_tables; i++) {
+    // Put num entries.
+    CryptoPP::Integer num_entries = this->garbled_tables[i].entries.size();
+    put_integer(num_entries, data);
+    for (int j = 0; j < num_entries; j++) {
+      std::string entry =
+          byteblock_to_string(this->garbled_tables[i].entries[j]);
+      put_string(entry, data);
+    }
+  }
 }
 
-/**
- * deserialize VoterToRegistrar_Register_Message.
- */
-int VoterToRegistrar_Register_Message::deserialize(
+int GarblerToEvaluator_GarbledTables_Message::deserialize(
     std::vector<unsigned char> &data) {
   // Check correct message type.
-  assert(data[0] == MessageType::VoterToRegistrar_Register_Message);
+  assert(data[0] == MessageType::GarblerToEvaluator_GarbledTables_Message);
+
+  // Get length
+  size_t num_tables;
+  std::memcpy(&num_tables, &data[1], sizeof(size_t));
 
   // Get fields.
-  std::string user_verification_key_str;
-  int n = 1;
-  n += get_string(&this->id, data, n);
-  n += get_integer(&this->vote, data, n);
+  int n = 1 + sizeof(size_t);
+  for (int i = 0; i < num_tables; i++) {
+    GarbledGate gate;
+    CryptoPP::Integer num_entries;
+    n += get_integer(&num_entries, data, n);
+    for (int j = 0; j < num_entries; j++) {
+      std::string entry;
+      n += get_string(&entry, data, n);
+      gate.entries.push_back(string_to_byteblock(entry));
+    }
+    this->garbled_tables.push_back(gate);
+  }
   return n;
 }
 
-/**
- * serialize RegistrarToVoter_Blind_Signature_Message.
- */
-void RegistrarToVoter_Blind_Signature_Message::serialize(
+void GarblerToEvaluator_GarblerInputs_Message::serialize(
     std::vector<unsigned char> &data) {
   // Add message type.
-  data.push_back((char)MessageType::RegistrarToVoter_Blind_Signature_Message);
+  data.push_back((char)MessageType::GarblerToEvaluator_GarblerInputs_Message);
 
-  // Add fields.
-  put_string(this->id, data);
-  put_integer(this->registrar_signature, data);
+  // Put length of garbled inputs.
+  int idx = data.size();
+  data.resize(idx + sizeof(size_t));
+  size_t num_inputs = this->garbler_inputs.size();
+  std::memcpy(&data[idx], &num_inputs, sizeof(size_t));
+
+  // Put each table.
+  for (int i = 0; i < num_inputs; i++) {
+    std::string entry = byteblock_to_string(this->garbler_inputs[i].value);
+    put_string(entry, data);
+  }
 }
 
-/**
- * deserialize RegistrarToVoter_Blind_Signature_Message.
- */
-int RegistrarToVoter_Blind_Signature_Message::deserialize(
+int GarblerToEvaluator_GarblerInputs_Message::deserialize(
     std::vector<unsigned char> &data) {
   // Check correct message type.
-  assert(data[0] == MessageType::RegistrarToVoter_Blind_Signature_Message);
+  assert(data[0] == MessageType::GarblerToEvaluator_GarblerInputs_Message);
+
+  // Get length
+  size_t num_inputs;
+  std::memcpy(&num_inputs, &data[1], sizeof(size_t));
 
   // Get fields.
-  int n = 1;
-  n += get_string(&this->id, data, n);
-  n += get_integer(&this->registrar_signature, data, n);
-
+  int n = 1 + sizeof(size_t);
+  this->garbler_inputs.resize(num_inputs);
+  for (int i = 0; i < num_inputs; i++) {
+    std::string entry;
+    n += get_string(&entry, data, n);
+    this->garbler_inputs[i].value = string_to_byteblock(entry);
+  }
   return n;
 }
 
-// ================================================
-// VOTER <==> TALLYER
-// ================================================
-
-/**
- * serialize Vote_Ciphertext.
- */
-void Vote_Ciphertext::serialize(std::vector<unsigned char> &data) {
-  // Add message type.
-  data.push_back((char)MessageType::Vote_Ciphertext);
-
-  // Add fields.
-  put_integer(this->a, data);
-  put_integer(this->b, data);
-}
-
-/**
- * deserialize Vote_Ciphertext.
- */
-int Vote_Ciphertext::deserialize(std::vector<unsigned char> &data) {
-  // Check correct message type.
-  assert(data[0] == MessageType::Vote_Ciphertext);
-
-  // Get fields.
-  int n = 1;
-  n += get_integer(&this->a, data, n);
-  n += get_integer(&this->b, data, n);
-  return n;
-}
-
-/**
- * serialize VoteZKP_Struct.
- */
-void VoteZKP_Struct::serialize(std::vector<unsigned char> &data) {
-  // Add message type.
-  data.push_back((char)MessageType::VoteZKP_Struct);
-
-  // Add fields.
-  put_integer(this->a0, data);
-  put_integer(this->a1, data);
-  put_integer(this->b0, data);
-  put_integer(this->b1, data);
-  put_integer(this->c0, data);
-  put_integer(this->c1, data);
-  put_integer(this->r0, data);
-  put_integer(this->r1, data);
-}
-
-/**
- * deserialize VoteZKP_Struct.
- */
-int VoteZKP_Struct::deserialize(std::vector<unsigned char> &data) {
-  // Check correct message type.
-  assert(data[0] == MessageType::VoteZKP_Struct);
-
-  // Get fields.
-  int n = 1;
-  n += get_integer(&this->a0, data, n);
-  n += get_integer(&this->a1, data, n);
-  n += get_integer(&this->b0, data, n);
-  n += get_integer(&this->b1, data, n);
-  n += get_integer(&this->c0, data, n);
-  n += get_integer(&this->c1, data, n);
-  n += get_integer(&this->r0, data, n);
-  n += get_integer(&this->r1, data, n);
-  return n;
-}
-
-/**
- * serialize VoterToTallyer_Vote_Message.
- */
-void VoterToTallyer_Vote_Message::serialize(std::vector<unsigned char> &data) {
-  // Add message type.
-  data.push_back((char)MessageType::VoterToTallyer_Vote_Message);
-
-  // Add fields.
-
-  std::vector<unsigned char> vote_data;
-  this->vote.serialize(vote_data);
-  data.insert(data.end(), vote_data.begin(), vote_data.end());
-
-  put_integer(this->unblinded_signature, data);
-
-  std::vector<unsigned char> zkp_data;
-  this->zkp.serialize(zkp_data);
-  data.insert(data.end(), zkp_data.begin(), zkp_data.end());
-}
-
-/**
- * deserialize VoterToTallyer_Vote_Message.
- */
-int VoterToTallyer_Vote_Message::deserialize(std::vector<unsigned char> &data) {
-  // Check correct message type.
-  assert(data[0] == MessageType::VoterToTallyer_Vote_Message);
-
-  // Get fields.
-  int n = 1;
-  std::vector<unsigned char> vote_slice =
-      std::vector<unsigned char>(data.begin() + n, data.end());
-  n += this->vote.deserialize(vote_slice);
-
-  n += get_integer(&this->unblinded_signature, data, n);
-
-  std::vector<unsigned char> zkp_slice =
-      std::vector<unsigned char>(data.begin() + n, data.end());
-  n += this->zkp.deserialize(zkp_slice);
-
-  return n;
-}
-
-/**
- * serialize TallyerToWorld_Vote_Message.
- */
-void TallyerToWorld_Vote_Message::serialize(std::vector<unsigned char> &data) {
-  // Add message type.
-  data.push_back((char)MessageType::TallyerToWorld_Vote_Message);
-
-  // Add fields.
-  std::vector<unsigned char> vote_data;
-  this->vote.serialize(vote_data);
-  data.insert(data.end(), vote_data.begin(), vote_data.end());
-
-  std::vector<unsigned char> zkp_data;
-  this->zkp.serialize(zkp_data);
-  data.insert(data.end(), zkp_data.begin(), zkp_data.end());
-
-  put_integer(this->unblinded_signature, data);
-
-  put_string(this->tallyer_signature, data);
-}
-
-/**
- * deserialize TallyerToWorld_Vote_Message.
- */
-int TallyerToWorld_Vote_Message::deserialize(std::vector<unsigned char> &data) {
-  // Check correct message type.
-  assert(data[0] == MessageType::TallyerToWorld_Vote_Message);
-
-  // Get fields.
-  int n = 1;
-  std::vector<unsigned char> vote_slice =
-      std::vector<unsigned char>(data.begin() + n, data.end());
-  n += this->vote.deserialize(vote_slice);
-
-  std::vector<unsigned char> zkp_slice =
-      std::vector<unsigned char>(data.begin() + n, data.end());
-  n += this->zkp.deserialize(zkp_slice);
-
-  n += get_integer(&this->unblinded_signature, data, n);
-
-  n += get_string(&this->tallyer_signature, data, n);
-  return n;
-}
-
-// ================================================
-// ARBITER <==> WORLD
-// ================================================
-
-/**
- * serialize PartialDecryption_Struct.
- */
-void PartialDecryption_Struct::serialize(std::vector<unsigned char> &data) {
-  // Add message type.
-  data.push_back((char)MessageType::PartialDecryption_Struct);
-
-  // Add fields.
-  put_integer(this->d, data);
-  std::vector<unsigned char> aggregate_ciphertext_data;
-  this->aggregate_ciphertext.serialize(aggregate_ciphertext_data);
-  data.insert(data.end(), aggregate_ciphertext_data.begin(),
-              aggregate_ciphertext_data.end());
-}
-
-/**
- * deserialize PartialDecryption_Struct.
- */
-int PartialDecryption_Struct::deserialize(std::vector<unsigned char> &data) {
-  // Check correct message type.
-  assert(data[0] == MessageType::PartialDecryption_Struct);
-
-  // Get fields.
-  int n = 1;
-  n += get_integer(&this->d, data, n);
-  std::vector<unsigned char> aggregate_ciphertext_slice =
-      std::vector<unsigned char>(data.begin() + n, data.end());
-  n += this->aggregate_ciphertext.deserialize(aggregate_ciphertext_slice);
-  return n;
-}
-
-/**
- * serialize DecryptionZKP_Struct.
- */
-void DecryptionZKP_Struct::serialize(std::vector<unsigned char> &data) {
-  // Add message type.
-  data.push_back((char)MessageType::DecryptionZKP_Struct);
-
-  // Add fields.
-  put_integer(this->u, data);
-  put_integer(this->v, data);
-  put_integer(this->s, data);
-}
-
-/**
- * deserialize DecryptionZKP_Struct.
- */
-int DecryptionZKP_Struct::deserialize(std::vector<unsigned char> &data) {
-  // Check correct message type.
-  assert(data[0] == MessageType::DecryptionZKP_Struct);
-
-  // Get fields.
-  int n = 1;
-  n += get_integer(&this->u, data, n);
-  n += get_integer(&this->v, data, n);
-  n += get_integer(&this->s, data, n);
-  return n;
-}
-
-/**
- * serialize ArbiterToWorld_PartialDecryption_Message.
- */
-void ArbiterToWorld_PartialDecryption_Message::serialize(
+void EvaluatorToGarbler_FinalLabels_Message::serialize(
     std::vector<unsigned char> &data) {
   // Add message type.
-  data.push_back((char)MessageType::ArbiterToWorld_PartialDecryption_Message);
+  data.push_back((char)MessageType::EvaluatorToGarbler_FinalLabels_Message);
 
-  // Add fields.
-  put_string(this->arbiter_id, data);
+  // Put length of garbled inputs.
+  int idx = data.size();
+  data.resize(idx + sizeof(size_t));
+  size_t num_labels = this->final_labels.size();
+  std::memcpy(&data[idx], &num_labels, sizeof(size_t));
 
-  put_string(this->arbiter_vk_path, data);
-
-  std::vector<unsigned char> dec_data;
-  this->dec.serialize(dec_data);
-  data.insert(data.end(), dec_data.begin(), dec_data.end());
-
-  std::vector<unsigned char> zkp_data;
-  this->zkp.serialize(zkp_data);
-  data.insert(data.end(), zkp_data.begin(), zkp_data.end());
+  // Put each table.
+  for (int i = 0; i < num_labels; i++) {
+    std::string entry = byteblock_to_string(this->final_labels[i].value);
+    put_string(entry, data);
+  }
 }
 
-/**
- * deserialize ArbiterToWorld_PartialDecryption_Message.
- */
-int ArbiterToWorld_PartialDecryption_Message::deserialize(
+int EvaluatorToGarbler_FinalLabels_Message::deserialize(
     std::vector<unsigned char> &data) {
   // Check correct message type.
-  assert(data[0] == MessageType::ArbiterToWorld_PartialDecryption_Message);
+  assert(data[0] == MessageType::EvaluatorToGarbler_FinalLabels_Message);
+
+  // Get length
+  size_t num_labels;
+  std::memcpy(&num_labels, &data[1], sizeof(size_t));
 
   // Get fields.
-  int n = 1;
-  n += get_string(&this->arbiter_id, data, n);
-
-  n += get_string(&this->arbiter_vk_path, data, n);
-
-  std::vector<unsigned char> dec_slice =
-      std::vector<unsigned char>(data.begin() + n, data.end());
-  n += this->dec.deserialize(dec_slice);
-
-  std::vector<unsigned char> zkp_slice =
-      std::vector<unsigned char>(data.begin() + n, data.end());
-  n += this->zkp.deserialize(zkp_slice);
+  int n = 1 + sizeof(size_t);
+  this->final_labels.resize(num_labels);
+  for (int i = 0; i < num_labels; i++) {
+    std::string entry;
+    n += get_string(&entry, data, n);
+    this->final_labels[i].value = string_to_byteblock(entry);
+  }
   return n;
 }
 
-// ================================================
-// SIGNING HELPERS
-// ================================================
+void GarblerToEvaluator_FinalOutput_Message::serialize(
+    std::vector<unsigned char> &data) {
+  // Add message type.
+  data.push_back((char)MessageType::GarblerToEvaluator_FinalOutput_Message);
 
-/**
- * Concatenate two byteblocks into vector of unsigned char
- */
-std::vector<unsigned char> concat_byteblocks(CryptoPP::SecByteBlock &b1,
-                                             CryptoPP::SecByteBlock &b2) {
-  // Convert byteblocks to strings
-  std::string b1_str = byteblock_to_string(b1);
-  std::string b2_str = byteblock_to_string(b2);
-
-  // Concat strings to vec
-  std::vector<unsigned char> v;
-  v.insert(v.end(), b1_str.begin(), b1_str.end());
-  v.insert(v.end(), b2_str.begin(), b2_str.end());
-  return v;
+  // Add fields.
+  put_string(this->final_output, data);
 }
 
-/**
- * Concatenate a vote and zkp into vector of unsigned char
- */
-std::vector<unsigned char>
-concat_vote_zkp_and_signature(Vote_Ciphertext &vote, VoteZKP_Struct &zkp,
-                              CryptoPP::Integer &signature) {
-  // Serialize vote and zkp.
-  std::vector<unsigned char> vote_data;
-  vote.serialize(vote_data);
-  std::vector<unsigned char> zkp_data;
-  zkp.serialize(zkp_data);
-  std::vector<unsigned char> signature_data =
-      str2chvec(integer_to_string(signature));
+int GarblerToEvaluator_FinalOutput_Message::deserialize(
+    std::vector<unsigned char> &data) {
+  // Check correct message type.
+  assert(data[0] == MessageType::GarblerToEvaluator_FinalOutput_Message);
 
-  // Concat data to vec.
-  std::vector<unsigned char> v;
-  v.insert(v.end(), vote_data.begin(), vote_data.end());
-  v.insert(v.end(), zkp_data.begin(), zkp_data.end());
-  v.insert(v.end(), signature_data.begin(), signature_data.end());
-  return v;
+  // Get fields.
+  int n = 1;
+  n += get_string(&this->final_output, data, n);
+  return n;
 }

@@ -1,4 +1,4 @@
-# Install script for directory: /workspaces/vote-Yuki-Zang/test
+# Install script for directory: /workspaces/yaos-Yuki-Zang/test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

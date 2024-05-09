@@ -3,8 +3,8 @@
 #include <string>
 
 #include "crypto++/base64.h"
+#include "crypto++/dsa.h"
 #include "crypto++/osrng.h"
-#include "crypto++/pssr.h"
 #include "crypto++/rsa.h"
 #include <crypto++/cryptlib.h>
 #include <crypto++/elgamal.h>
@@ -91,7 +91,14 @@ SecByteBlock CryptoDriver::DH_generate_shared_key(
     const DH &DH_obj, const SecByteBlock &DH_private_value,
     const SecByteBlock &DH_other_public_value) {
   SecByteBlock DH_shared_key(DH_obj.AgreedValueLength());
-  if (!DH_obj.Agree(DH_shared_key, DH_private_value, DH_other_public_value)) {
+  SecByteBlock private_key_real =
+      SecByteBlock(NULL, DH_obj.PrivateKeyLength() - DH_private_value.size()) +
+      DH_private_value;
+  SecByteBlock other_key_real =
+      SecByteBlock(NULL,
+                   DH_obj.PublicKeyLength() - DH_other_public_value.size()) +
+      DH_other_public_value;
+  if (!DH_obj.Agree(DH_shared_key, private_key_real, other_key_real)) {
     throw std::runtime_error("Error: failed to reach shared secret.");
   }
   return DH_shared_key;
@@ -123,8 +130,8 @@ CryptoDriver::AES_encrypt(SecByteBlock key, std::string plaintext) {
     CBC_Mode<AES>::Encryption AES_encryptor = CBC_Mode<AES>::Encryption();
 
     SecByteBlock iv(AES::BLOCKSIZE);
-    AutoSeededRandomPool prng;
-    AES_encryptor.GetNextIV(prng, iv.BytePtr());
+    AutoSeededRandomPool rng;
+    AES_encryptor.GetNextIV(rng, iv.BytePtr());
     AES_encryptor.SetKeyWithIV(key, key.size(), iv);
 
     // Encrypt using a StreamTransformationFilter
@@ -217,247 +224,14 @@ bool CryptoDriver::HMAC_verify(SecByteBlock key, std::string ciphertext,
 }
 
 /**
- * @brief Generates a pair of El Gamal keys. This function should:
- * 1) Generate a random `a` value using an CryptoPP::AutoSeededRandomPool
-      from the range (1, q-1].
- * 2) Exponentiate the base DL_G to get the public value,
- *    then return (private key, public key)
+ * Hash inputs. SHA256(lhs || rhs)
  */
-std::pair<CryptoPP::Integer, CryptoPP::Integer> CryptoDriver::EG_generate() {
-  // TODO: implement me!
-    //UNCHECKED!!!!
-
-    // Define the prime q and generator DL_G
-    // CryptoPP::Integer q = 2048 /*NOT SURE IF THIS VAL IS PRESPECIFIED*/;
-    // CryptoPP::Integer DL_G = 1024 /* NOT SURE IF THIS VAL IS PRESPECIFIED */;
-
-    // Step 1: Generate a random 'a' value
-    CryptoPP::AutoSeededRandomPool rng;
-    CryptoPP::Integer privateKey(rng, 2, DL_Q - 1);
-
-    // Step 2: Exponentiate the base DL_G to get the public value
-    CryptoPP::Integer publicKey = CryptoPP::ModularExponentiation(DL_G, privateKey, DL_P); /*base, exponent, modulus*/
-
-    // Return the private key and public key pair
-    return std::make_pair(privateKey, publicKey);
-}
-
-/**
- * @brief Generates RSA public and private keys with key size RSA_KEYSIZE.
- * Suitable for both normal RSA signatures and RSA blind signatures.
- */
-std::pair<RSA::PrivateKey, RSA::PublicKey> CryptoDriver::RSA_generate_keys() {
-    // TODO: implement me! 
-    // COPIED FROM THE PREVIOUS PROJECT
-    // Initialize Random Number Generator
-    AutoSeededRandomPool rng;
-
-    // Create Keys
-    //https://www.cryptopp.com/wiki/RSA_Cryptography
-    RSA::PrivateKey privateKey; //function as InvertibleRSAFunction
-    privateKey.GenerateRandomWithKeySize(rng, RSA_KEYSIZE);
-    RSA::PublicKey publicKey(privateKey);
-
-    // Validate keys
-    //https://www.cryptopp.com/docs/ref/class_crypto_material.html#aaa7d67d0c12712de0e33713c73f5b718
-    if (!privateKey.Validate(rng, 3) || !publicKey.Validate(rng, 3)) {
-        throw std::runtime_error("Failed to validate RSA keys");
-    }
-    void SaveRSAPrivateKey(const std::string &filename,
-                       const CryptoPP::PrivateKey &key);
-    return std::make_pair(privateKey, publicKey);
-}
-
-/**
- * @brief Sign the given message with the given signing key.
- */
-std::string CryptoDriver::RSA_sign(const RSA::PrivateKey &signing_key,
-                                   std::vector<unsigned char> message) {
-    // TODO: implement me!
-    // COPIED FROM THE PREVIOUS PROJECT
-    // Initialize a signer with the given key
-    AutoSeededRandomPool rng;
-    CryptoPP::RSASS<PSS, SHA256>::Signer signer(signing_key);
-    // CryptoPP::RSASS<CryptoPP::PSSR, CryptoPP::SHA256>::Signer signer(signing_key);
-
-    // Convert the message to a string
-    std::string message_str = chvec2str(message);
-
-    // Use a SignerFilter to generate a signature
-    std::string signature;
-    CryptoPP::StringSource ss1(message_str, true, 
-        new SignerFilter(rng, signer,
-            new StringSink(signature)
-        ) // SignerFilter
-    ); // StringSource
-    return signature;
-}
-
-/**
- * @brief Verify that signature is valid on message with the verification_key.
- */
-bool CryptoDriver::RSA_verify(const RSA::PublicKey &verification_key,
-                              std::vector<unsigned char> message,
-                              std::string signature) {
-  const int flags = SignatureVerificationFilter::THROW_EXCEPTION |
-                    SignatureVerificationFilter::SIGNATURE_AT_END;
-                    // PUT_RESULT
-    // TODO: implement me!
-    // COPIED FROM THE PREVIOUS PROJECT
-    try{
-        // Initialize a verifier with the given key
-        CryptoPP::RSASS<PSS, SHA256>::Verifier verifier(verification_key);
-        // CryptoPP::RSASS<CryptoPP::PSSR, CryptoPP::SHA256>::Verifier verifier(verification_key);
-
-        // Convert the to a string
-        std::string message_str = chvec2str(message);
-        // Concatenate the message and signature
-        std::string signed_message = message_str + signature;
-
-        StringSource ss2(signed_message, true,
-            new SignatureVerificationFilter(verifier, NULL, flags)
-        ); // StringSource
-        return true;
-    } catch (const CryptoPP::Exception &e) {
-        std::cerr << e.what() << std::endl;
-        // Return false upon failure
-        return false;
-    }
-}
-
-/**
- * @brief Blinds the given message using the given public key.
- */
-std::pair<CryptoPP::Integer, CryptoPP::Integer>
-CryptoDriver::RSA_BLIND_blind(const RSA::PublicKey &public_key,
-                              Serializable &msg) {
-  // Convenience
-  CryptoPP::AutoSeededRandomPool prng;
-  const CryptoPP::Integer n = public_key.GetModulus();
-  const CryptoPP::Integer e = public_key.GetPublicExponent();
-  const size_t SIG_SIZE = n.ByteCount();
-
-  // Convert the msg to a secbyteblock
-  std::vector<unsigned char> msg_buff;
-  msg.serialize(msg_buff);
-  CryptoPP::SecByteBlock msg_block =
-      CryptoPP::SecByteBlock(msg_buff.data(), msg_buff.size());
-
-  // Hash the message using a FDH
-  CryptoPP::SecByteBlock msg_hash = FDH_hash(msg_block, SIG_SIZE);
-
-  // Convert the hash to an integer modulo n
-  CryptoPP::Integer hm(msg_hash.data(), msg_hash.size());
-  hm = hm % n;
-
-  // [STUDENTS] Now:
-  // 1) Generate a random number r that is relatively prime to n
-  // 2) Compute the blinded message mm = (hm * r^e) % n
-  // 3) Return the blinded message and the blinding factor r
-  // See https://www.cryptopp.com/wiki/Blind_Signature for reference
-  // TODO: implement me!
-  // TODO: Status: unchecked!
-
-  // Step 1 ----------------------------------
-  // Generate a random number r that is relatively prime to n
-  CryptoPP::Integer r;
-  do {
-      r.Randomize(prng, Integer::One(), n - Integer::One());
-  } while (!RelativelyPrime(r, n));
-
-  // Step 2 ----------------------------------
-  // Compute the blinded message mm = (hm * r^e) % n
-  CryptoPP::Integer b = a_exp_b_mod_c(r, e, n); /*b*/
-  CryptoPP::Integer mm = a_times_b_mod_c(hm, b, n);
-
-  // Step 3 ----------------------------------
-  return std::make_pair(mm /*blinded msg*/, r/*blinding factor*/);
-}
-
-/**
- * @brief Signs the given blinded message using the given private key.
- */
-CryptoPP::Integer
-CryptoDriver::RSA_BLIND_sign(const RSA::PrivateKey &private_key,
-                             CryptoPP::Integer blinded_msg) {
-  // TODO: implement me!
-  CryptoPP::AutoSeededRandomPool prng;
-  //calculateInverse is doing mm^d, d private
-  CryptoPP::Integer signed_blind_msg = private_key.CalculateInverse(prng, blinded_msg);
-  return signed_blind_msg;
-}
-
-/**
- * @brief Unblinds the given signed message using the given public key.
- */
-CryptoPP::Integer
-CryptoDriver::RSA_BLIND_unblind(const RSA::PublicKey &public_key,
-                                CryptoPP::Integer signed_blind_msg,
-                                CryptoPP::Integer blind) {
-  // TODO: implement me!
-  // Status: Check!
-  //σ = σ' * r^{-1} mod N
-  CryptoPP:: Integer n = public_key.GetModulus();
-  CryptoPP:: Integer unblindedSig = a_times_b_mod_c(signed_blind_msg, blind.InverseMod(n), n);
-  return unblindedSig;
-}
-
-/**
- * @brief Verifies the given signature.
- */
-bool CryptoDriver::RSA_BLIND_verify(const RSA::PublicKey &public_key,
-                                    Serializable &msg,
-                                    CryptoPP::Integer signature) {
-  // Convenience
-  const size_t SIG_SIZE = public_key.GetModulus().ByteCount();
-  const CryptoPP::Integer n = public_key.GetModulus();
-  const CryptoPP::Integer e = public_key.GetPublicExponent();
-
-  // Convert the msg to a secbyteblock
-  std::vector<unsigned char> msg_buff;
-  msg.serialize(msg_buff);
-  CryptoPP::SecByteBlock msg_block =
-      CryptoPP::SecByteBlock(msg_buff.data(), msg_buff.size());
-
-  // Hash the message using a FDH and convert to integer modulo n
-  CryptoPP::SecByteBlock hash = FDH_hash(msg_block, SIG_SIZE);
-  CryptoPP::Integer hm(hash.data(), hash.size());
-  hm = hm % n;
-
-  // [STUDENTS] Now:
-  // 1) Raise the signature to the power of e modulo n.
-  // You may see this referred to as "applying the trapdoor"
-  // in documentation, or as the function "ApplyFunction" in the
-  // CryptoPP wiki.
-  // 2) Compare the result to the hash of the message `hm` and return
-  // TODO: implement me!
-
-  // Step 1 ----------------------------------
-  // Raise the sig to the power of e % n, e public
-  CryptoPP::Integer unblindedSig = public_key.ApplyFunction(signature);
-  // CryptoPP::ModularExponentiation(signature, e, n);
-
-  // Step 2 ----------------------------------
-  if (hm == unblindedSig){
-    return true;
-  }else{
-    return false;
-  }
-}
-
-/**
- * @brief Uses HKDF to hash the given message to the desired domain size (in
- * bits)
- */
-SecByteBlock CryptoDriver::FDH_hash(SecByteBlock input, int domain_byte_size) {
-  // Account for statistical security
-  domain_byte_size = domain_byte_size + LAMBDA / 8;
-
-  // Hash and return. Note that the resulting hash, when converted
-  // to an integer, may be much larger than the domain bit size and
-  // will need to be reduced modulo n.
-  HKDF<SHA256> hkdf;
-  SecByteBlock hash(domain_byte_size);
-  hkdf.DeriveKey(hash, hash.size(), input, input.size(), NULL, 0, NULL, 0);
-  return hash;
+CryptoPP::SecByteBlock CryptoDriver::hash_inputs(CryptoPP::SecByteBlock &lhs,
+                                                 CryptoPP::SecByteBlock &rhs) {
+  CryptoPP::SHA256 hash;
+  CryptoPP::SecByteBlock digest(hash.DigestSize());
+  CryptoPP::SecByteBlock appended = lhs + rhs;
+  hash.Update(appended.BytePtr(), appended.size());
+  hash.Final(digest.BytePtr());
+  return digest;
 }

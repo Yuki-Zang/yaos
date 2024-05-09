@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/workspaces/vote-Yuki-Zang/test/test_provided.cxx
+/workspaces/yaos-Yuki-Zang/test/test_provided.cxx
 doctest/doctest.h
-/workspaces/vote-Yuki-Zang/test/doctest/doctest.h
+/workspaces/yaos-Yuki-Zang/test/doctest/doctest.h
 
 _deps/doctest-src/doctest/doctest.h
 signal.h

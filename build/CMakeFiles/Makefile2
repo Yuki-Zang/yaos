@@ -44,21 +44,20 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /workspaces/vote-Yuki-Zang
+CMAKE_SOURCE_DIR = /workspaces/yaos-Yuki-Zang
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /workspaces/vote-Yuki-Zang/build
+CMAKE_BINARY_DIR = /workspaces/yaos-Yuki-Zang/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/vote_registrar.dir/all
-all: CMakeFiles/vote_arbiter.dir/all
-all: CMakeFiles/vote_voter.dir/all
-all: CMakeFiles/vote_app_lib.dir/all
-all: CMakeFiles/vote_app_lib_shared.dir/all
-all: CMakeFiles/vote_tallyer.dir/all
+all: CMakeFiles/ot_test.dir/all
+all: CMakeFiles/yaos_garbler.dir/all
+all: CMakeFiles/yaos_app_lib_shared.dir/all
+all: CMakeFiles/yaos_app_lib.dir/all
+all: CMakeFiles/yaos_evaluator.dir/all
 all: _deps/doctest-build/all
 all: test/all
 
@@ -72,13 +71,11 @@ preinstall: test/preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/check.dir/clean
-clean: CMakeFiles/vote_registrar.dir/clean
-clean: CMakeFiles/vote_arbiter.dir/clean
-clean: CMakeFiles/vote_voter.dir/clean
-clean: CMakeFiles/vote_app_lib.dir/clean
-clean: CMakeFiles/vote_app_lib_shared.dir/clean
-clean: CMakeFiles/vote_tallyer.dir/clean
+clean: CMakeFiles/ot_test.dir/clean
+clean: CMakeFiles/yaos_garbler.dir/clean
+clean: CMakeFiles/yaos_app_lib_shared.dir/clean
 clean: CMakeFiles/NightlyMemCheck.dir/clean
+clean: CMakeFiles/yaos_app_lib.dir/clean
 clean: CMakeFiles/NightlyTest.dir/clean
 clean: CMakeFiles/doc.dir/clean
 clean: CMakeFiles/ContinuousConfigure.dir/clean
@@ -96,6 +93,7 @@ clean: CMakeFiles/ExperimentalConfigure.dir/clean
 clean: CMakeFiles/Continuous.dir/clean
 clean: CMakeFiles/Nightly.dir/clean
 clean: CMakeFiles/NightlySubmit.dir/clean
+clean: CMakeFiles/yaos_evaluator.dir/clean
 clean: CMakeFiles/NightlyStart.dir/clean
 clean: CMakeFiles/ExperimentalCoverage.dir/clean
 clean: CMakeFiles/NightlyCoverage.dir/clean
@@ -155,14 +153,14 @@ test/clean: test/CMakeFiles/unit_tests.dir/clean
 CMakeFiles/check.dir/all:
 	$(MAKE) -f CMakeFiles/check.dir/build.make CMakeFiles/check.dir/depend
 	$(MAKE) -f CMakeFiles/check.dir/build.make CMakeFiles/check.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target check"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target check"
 .PHONY : CMakeFiles/check.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/check.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/check.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/check.dir/rule
 
 # Convenience name for target.
@@ -176,170 +174,87 @@ CMakeFiles/check.dir/clean:
 .PHONY : CMakeFiles/check.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/vote_registrar.dir
+# Target rules for target CMakeFiles/ot_test.dir
 
 # All Build rule for target.
-CMakeFiles/vote_registrar.dir/all: CMakeFiles/vote_app_lib.dir/all
-CMakeFiles/vote_registrar.dir/all: CMakeFiles/vote_app_lib_shared.dir/all
-	$(MAKE) -f CMakeFiles/vote_registrar.dir/build.make CMakeFiles/vote_registrar.dir/depend
-	$(MAKE) -f CMakeFiles/vote_registrar.dir/build.make CMakeFiles/vote_registrar.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num=25,26 "Built target vote_registrar"
-.PHONY : CMakeFiles/vote_registrar.dir/all
+CMakeFiles/ot_test.dir/all: CMakeFiles/yaos_app_lib_shared.dir/all
+CMakeFiles/ot_test.dir/all: CMakeFiles/yaos_app_lib.dir/all
+	$(MAKE) -f CMakeFiles/ot_test.dir/build.make CMakeFiles/ot_test.dir/depend
+	$(MAKE) -f CMakeFiles/ot_test.dir/build.make CMakeFiles/ot_test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num=4,5 "Built target ot_test"
+.PHONY : CMakeFiles/ot_test.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/vote_registrar.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 19
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/vote_registrar.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
-.PHONY : CMakeFiles/vote_registrar.dir/rule
+CMakeFiles/ot_test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 14
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ot_test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
+.PHONY : CMakeFiles/ot_test.dir/rule
 
 # Convenience name for target.
-vote_registrar: CMakeFiles/vote_registrar.dir/rule
+ot_test: CMakeFiles/ot_test.dir/rule
 
-.PHONY : vote_registrar
+.PHONY : ot_test
 
 # clean rule for target.
-CMakeFiles/vote_registrar.dir/clean:
-	$(MAKE) -f CMakeFiles/vote_registrar.dir/build.make CMakeFiles/vote_registrar.dir/clean
-.PHONY : CMakeFiles/vote_registrar.dir/clean
+CMakeFiles/ot_test.dir/clean:
+	$(MAKE) -f CMakeFiles/ot_test.dir/build.make CMakeFiles/ot_test.dir/clean
+.PHONY : CMakeFiles/ot_test.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/vote_arbiter.dir
+# Target rules for target CMakeFiles/yaos_garbler.dir
 
 # All Build rule for target.
-CMakeFiles/vote_arbiter.dir/all: CMakeFiles/vote_app_lib.dir/all
-CMakeFiles/vote_arbiter.dir/all: CMakeFiles/vote_app_lib_shared.dir/all
-	$(MAKE) -f CMakeFiles/vote_arbiter.dir/build.make CMakeFiles/vote_arbiter.dir/depend
-	$(MAKE) -f CMakeFiles/vote_arbiter.dir/build.make CMakeFiles/vote_arbiter.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num=23,24 "Built target vote_arbiter"
-.PHONY : CMakeFiles/vote_arbiter.dir/all
+CMakeFiles/yaos_garbler.dir/all: CMakeFiles/yaos_app_lib_shared.dir/all
+CMakeFiles/yaos_garbler.dir/all: CMakeFiles/yaos_app_lib.dir/all
+	$(MAKE) -f CMakeFiles/yaos_garbler.dir/build.make CMakeFiles/yaos_garbler.dir/depend
+	$(MAKE) -f CMakeFiles/yaos_garbler.dir/build.make CMakeFiles/yaos_garbler.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num=22,23 "Built target yaos_garbler"
+.PHONY : CMakeFiles/yaos_garbler.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/vote_arbiter.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 19
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/vote_arbiter.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
-.PHONY : CMakeFiles/vote_arbiter.dir/rule
+CMakeFiles/yaos_garbler.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 14
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/yaos_garbler.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
+.PHONY : CMakeFiles/yaos_garbler.dir/rule
 
 # Convenience name for target.
-vote_arbiter: CMakeFiles/vote_arbiter.dir/rule
+yaos_garbler: CMakeFiles/yaos_garbler.dir/rule
 
-.PHONY : vote_arbiter
+.PHONY : yaos_garbler
 
 # clean rule for target.
-CMakeFiles/vote_arbiter.dir/clean:
-	$(MAKE) -f CMakeFiles/vote_arbiter.dir/build.make CMakeFiles/vote_arbiter.dir/clean
-.PHONY : CMakeFiles/vote_arbiter.dir/clean
+CMakeFiles/yaos_garbler.dir/clean:
+	$(MAKE) -f CMakeFiles/yaos_garbler.dir/build.make CMakeFiles/yaos_garbler.dir/clean
+.PHONY : CMakeFiles/yaos_garbler.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/vote_voter.dir
+# Target rules for target CMakeFiles/yaos_app_lib_shared.dir
 
 # All Build rule for target.
-CMakeFiles/vote_voter.dir/all: CMakeFiles/vote_app_lib.dir/all
-CMakeFiles/vote_voter.dir/all: CMakeFiles/vote_app_lib_shared.dir/all
-	$(MAKE) -f CMakeFiles/vote_voter.dir/build.make CMakeFiles/vote_voter.dir/depend
-	$(MAKE) -f CMakeFiles/vote_voter.dir/build.make CMakeFiles/vote_voter.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num=29,30 "Built target vote_voter"
-.PHONY : CMakeFiles/vote_voter.dir/all
+CMakeFiles/yaos_app_lib_shared.dir/all:
+	$(MAKE) -f CMakeFiles/yaos_app_lib_shared.dir/build.make CMakeFiles/yaos_app_lib_shared.dir/depend
+	$(MAKE) -f CMakeFiles/yaos_app_lib_shared.dir/build.make CMakeFiles/yaos_app_lib_shared.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num=15,16,17,18,19 "Built target yaos_app_lib_shared"
+.PHONY : CMakeFiles/yaos_app_lib_shared.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/vote_voter.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 19
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/vote_voter.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
-.PHONY : CMakeFiles/vote_voter.dir/rule
+CMakeFiles/yaos_app_lib_shared.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 5
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/yaos_app_lib_shared.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
+.PHONY : CMakeFiles/yaos_app_lib_shared.dir/rule
 
 # Convenience name for target.
-vote_voter: CMakeFiles/vote_voter.dir/rule
+yaos_app_lib_shared: CMakeFiles/yaos_app_lib_shared.dir/rule
 
-.PHONY : vote_voter
-
-# clean rule for target.
-CMakeFiles/vote_voter.dir/clean:
-	$(MAKE) -f CMakeFiles/vote_voter.dir/build.make CMakeFiles/vote_voter.dir/clean
-.PHONY : CMakeFiles/vote_voter.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/vote_app_lib.dir
-
-# All Build rule for target.
-CMakeFiles/vote_app_lib.dir/all: CMakeFiles/vote_app_lib_shared.dir/all
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/depend
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num=6,7,8,9,10,11,12,13,14,15,16 "Built target vote_app_lib"
-.PHONY : CMakeFiles/vote_app_lib.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/vote_app_lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 17
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/vote_app_lib.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
-.PHONY : CMakeFiles/vote_app_lib.dir/rule
-
-# Convenience name for target.
-vote_app_lib: CMakeFiles/vote_app_lib.dir/rule
-
-.PHONY : vote_app_lib
+.PHONY : yaos_app_lib_shared
 
 # clean rule for target.
-CMakeFiles/vote_app_lib.dir/clean:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/clean
-.PHONY : CMakeFiles/vote_app_lib.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/vote_app_lib_shared.dir
-
-# All Build rule for target.
-CMakeFiles/vote_app_lib_shared.dir/all:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/depend
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num=17,18,19,20,21,22 "Built target vote_app_lib_shared"
-.PHONY : CMakeFiles/vote_app_lib_shared.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/vote_app_lib_shared.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 6
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/vote_app_lib_shared.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
-.PHONY : CMakeFiles/vote_app_lib_shared.dir/rule
-
-# Convenience name for target.
-vote_app_lib_shared: CMakeFiles/vote_app_lib_shared.dir/rule
-
-.PHONY : vote_app_lib_shared
-
-# clean rule for target.
-CMakeFiles/vote_app_lib_shared.dir/clean:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/clean
-.PHONY : CMakeFiles/vote_app_lib_shared.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/vote_tallyer.dir
-
-# All Build rule for target.
-CMakeFiles/vote_tallyer.dir/all: CMakeFiles/vote_app_lib.dir/all
-CMakeFiles/vote_tallyer.dir/all: CMakeFiles/vote_app_lib_shared.dir/all
-	$(MAKE) -f CMakeFiles/vote_tallyer.dir/build.make CMakeFiles/vote_tallyer.dir/depend
-	$(MAKE) -f CMakeFiles/vote_tallyer.dir/build.make CMakeFiles/vote_tallyer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num=27,28 "Built target vote_tallyer"
-.PHONY : CMakeFiles/vote_tallyer.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/vote_tallyer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 19
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/vote_tallyer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
-.PHONY : CMakeFiles/vote_tallyer.dir/rule
-
-# Convenience name for target.
-vote_tallyer: CMakeFiles/vote_tallyer.dir/rule
-
-.PHONY : vote_tallyer
-
-# clean rule for target.
-CMakeFiles/vote_tallyer.dir/clean:
-	$(MAKE) -f CMakeFiles/vote_tallyer.dir/build.make CMakeFiles/vote_tallyer.dir/clean
-.PHONY : CMakeFiles/vote_tallyer.dir/clean
+CMakeFiles/yaos_app_lib_shared.dir/clean:
+	$(MAKE) -f CMakeFiles/yaos_app_lib_shared.dir/build.make CMakeFiles/yaos_app_lib_shared.dir/clean
+.PHONY : CMakeFiles/yaos_app_lib_shared.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/NightlyMemCheck.dir
@@ -348,14 +263,14 @@ CMakeFiles/vote_tallyer.dir/clean:
 CMakeFiles/NightlyMemCheck.dir/all:
 	$(MAKE) -f CMakeFiles/NightlyMemCheck.dir/build.make CMakeFiles/NightlyMemCheck.dir/depend
 	$(MAKE) -f CMakeFiles/NightlyMemCheck.dir/build.make CMakeFiles/NightlyMemCheck.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlyMemCheck"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlyMemCheck"
 .PHONY : CMakeFiles/NightlyMemCheck.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/NightlyMemCheck.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NightlyMemCheck.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/NightlyMemCheck.dir/rule
 
 # Convenience name for target.
@@ -369,20 +284,47 @@ CMakeFiles/NightlyMemCheck.dir/clean:
 .PHONY : CMakeFiles/NightlyMemCheck.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/yaos_app_lib.dir
+
+# All Build rule for target.
+CMakeFiles/yaos_app_lib.dir/all: CMakeFiles/yaos_app_lib_shared.dir/all
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/depend
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num=8,9,10,11,12,13,14 "Built target yaos_app_lib"
+.PHONY : CMakeFiles/yaos_app_lib.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/yaos_app_lib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 12
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/yaos_app_lib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
+.PHONY : CMakeFiles/yaos_app_lib.dir/rule
+
+# Convenience name for target.
+yaos_app_lib: CMakeFiles/yaos_app_lib.dir/rule
+
+.PHONY : yaos_app_lib
+
+# clean rule for target.
+CMakeFiles/yaos_app_lib.dir/clean:
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/clean
+.PHONY : CMakeFiles/yaos_app_lib.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/NightlyTest.dir
 
 # All Build rule for target.
 CMakeFiles/NightlyTest.dir/all:
 	$(MAKE) -f CMakeFiles/NightlyTest.dir/build.make CMakeFiles/NightlyTest.dir/depend
 	$(MAKE) -f CMakeFiles/NightlyTest.dir/build.make CMakeFiles/NightlyTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlyTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlyTest"
 .PHONY : CMakeFiles/NightlyTest.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/NightlyTest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NightlyTest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/NightlyTest.dir/rule
 
 # Convenience name for target.
@@ -402,14 +344,14 @@ CMakeFiles/NightlyTest.dir/clean:
 CMakeFiles/doc.dir/all:
 	$(MAKE) -f CMakeFiles/doc.dir/build.make CMakeFiles/doc.dir/depend
 	$(MAKE) -f CMakeFiles/doc.dir/build.make CMakeFiles/doc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num=1 "Built target doc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num=1 "Built target doc"
 .PHONY : CMakeFiles/doc.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/doc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/doc.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/doc.dir/rule
 
 # Convenience name for target.
@@ -429,14 +371,14 @@ CMakeFiles/doc.dir/clean:
 CMakeFiles/ContinuousConfigure.dir/all:
 	$(MAKE) -f CMakeFiles/ContinuousConfigure.dir/build.make CMakeFiles/ContinuousConfigure.dir/depend
 	$(MAKE) -f CMakeFiles/ContinuousConfigure.dir/build.make CMakeFiles/ContinuousConfigure.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ContinuousConfigure"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ContinuousConfigure"
 .PHONY : CMakeFiles/ContinuousConfigure.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ContinuousConfigure.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ContinuousConfigure.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/ContinuousConfigure.dir/rule
 
 # Convenience name for target.
@@ -456,14 +398,14 @@ CMakeFiles/ContinuousConfigure.dir/clean:
 CMakeFiles/ContinuousBuild.dir/all:
 	$(MAKE) -f CMakeFiles/ContinuousBuild.dir/build.make CMakeFiles/ContinuousBuild.dir/depend
 	$(MAKE) -f CMakeFiles/ContinuousBuild.dir/build.make CMakeFiles/ContinuousBuild.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ContinuousBuild"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ContinuousBuild"
 .PHONY : CMakeFiles/ContinuousBuild.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ContinuousBuild.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ContinuousBuild.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/ContinuousBuild.dir/rule
 
 # Convenience name for target.
@@ -483,14 +425,14 @@ CMakeFiles/ContinuousBuild.dir/clean:
 CMakeFiles/NightlyConfigure.dir/all:
 	$(MAKE) -f CMakeFiles/NightlyConfigure.dir/build.make CMakeFiles/NightlyConfigure.dir/depend
 	$(MAKE) -f CMakeFiles/NightlyConfigure.dir/build.make CMakeFiles/NightlyConfigure.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlyConfigure"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlyConfigure"
 .PHONY : CMakeFiles/NightlyConfigure.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/NightlyConfigure.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NightlyConfigure.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/NightlyConfigure.dir/rule
 
 # Convenience name for target.
@@ -510,14 +452,14 @@ CMakeFiles/NightlyConfigure.dir/clean:
 CMakeFiles/NightlyMemoryCheck.dir/all:
 	$(MAKE) -f CMakeFiles/NightlyMemoryCheck.dir/build.make CMakeFiles/NightlyMemoryCheck.dir/depend
 	$(MAKE) -f CMakeFiles/NightlyMemoryCheck.dir/build.make CMakeFiles/NightlyMemoryCheck.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlyMemoryCheck"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlyMemoryCheck"
 .PHONY : CMakeFiles/NightlyMemoryCheck.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/NightlyMemoryCheck.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NightlyMemoryCheck.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/NightlyMemoryCheck.dir/rule
 
 # Convenience name for target.
@@ -537,14 +479,14 @@ CMakeFiles/NightlyMemoryCheck.dir/clean:
 CMakeFiles/ExperimentalTest.dir/all:
 	$(MAKE) -f CMakeFiles/ExperimentalTest.dir/build.make CMakeFiles/ExperimentalTest.dir/depend
 	$(MAKE) -f CMakeFiles/ExperimentalTest.dir/build.make CMakeFiles/ExperimentalTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ExperimentalTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ExperimentalTest"
 .PHONY : CMakeFiles/ExperimentalTest.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ExperimentalTest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ExperimentalTest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/ExperimentalTest.dir/rule
 
 # Convenience name for target.
@@ -564,14 +506,14 @@ CMakeFiles/ExperimentalTest.dir/clean:
 CMakeFiles/ContinuousUpdate.dir/all:
 	$(MAKE) -f CMakeFiles/ContinuousUpdate.dir/build.make CMakeFiles/ContinuousUpdate.dir/depend
 	$(MAKE) -f CMakeFiles/ContinuousUpdate.dir/build.make CMakeFiles/ContinuousUpdate.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ContinuousUpdate"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ContinuousUpdate"
 .PHONY : CMakeFiles/ContinuousUpdate.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ContinuousUpdate.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ContinuousUpdate.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/ContinuousUpdate.dir/rule
 
 # Convenience name for target.
@@ -591,14 +533,14 @@ CMakeFiles/ContinuousUpdate.dir/clean:
 CMakeFiles/NightlyUpdate.dir/all:
 	$(MAKE) -f CMakeFiles/NightlyUpdate.dir/build.make CMakeFiles/NightlyUpdate.dir/depend
 	$(MAKE) -f CMakeFiles/NightlyUpdate.dir/build.make CMakeFiles/NightlyUpdate.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlyUpdate"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlyUpdate"
 .PHONY : CMakeFiles/NightlyUpdate.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/NightlyUpdate.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NightlyUpdate.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/NightlyUpdate.dir/rule
 
 # Convenience name for target.
@@ -618,14 +560,14 @@ CMakeFiles/NightlyUpdate.dir/clean:
 CMakeFiles/ExperimentalMemCheck.dir/all:
 	$(MAKE) -f CMakeFiles/ExperimentalMemCheck.dir/build.make CMakeFiles/ExperimentalMemCheck.dir/depend
 	$(MAKE) -f CMakeFiles/ExperimentalMemCheck.dir/build.make CMakeFiles/ExperimentalMemCheck.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ExperimentalMemCheck"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ExperimentalMemCheck"
 .PHONY : CMakeFiles/ExperimentalMemCheck.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ExperimentalMemCheck.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ExperimentalMemCheck.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/ExperimentalMemCheck.dir/rule
 
 # Convenience name for target.
@@ -645,14 +587,14 @@ CMakeFiles/ExperimentalMemCheck.dir/clean:
 CMakeFiles/ExperimentalSubmit.dir/all:
 	$(MAKE) -f CMakeFiles/ExperimentalSubmit.dir/build.make CMakeFiles/ExperimentalSubmit.dir/depend
 	$(MAKE) -f CMakeFiles/ExperimentalSubmit.dir/build.make CMakeFiles/ExperimentalSubmit.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ExperimentalSubmit"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ExperimentalSubmit"
 .PHONY : CMakeFiles/ExperimentalSubmit.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ExperimentalSubmit.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ExperimentalSubmit.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/ExperimentalSubmit.dir/rule
 
 # Convenience name for target.
@@ -672,14 +614,14 @@ CMakeFiles/ExperimentalSubmit.dir/clean:
 CMakeFiles/Experimental.dir/all:
 	$(MAKE) -f CMakeFiles/Experimental.dir/build.make CMakeFiles/Experimental.dir/depend
 	$(MAKE) -f CMakeFiles/Experimental.dir/build.make CMakeFiles/Experimental.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target Experimental"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target Experimental"
 .PHONY : CMakeFiles/Experimental.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Experimental.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Experimental.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/Experimental.dir/rule
 
 # Convenience name for target.
@@ -699,14 +641,14 @@ CMakeFiles/Experimental.dir/clean:
 CMakeFiles/ContinuousCoverage.dir/all:
 	$(MAKE) -f CMakeFiles/ContinuousCoverage.dir/build.make CMakeFiles/ContinuousCoverage.dir/depend
 	$(MAKE) -f CMakeFiles/ContinuousCoverage.dir/build.make CMakeFiles/ContinuousCoverage.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ContinuousCoverage"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ContinuousCoverage"
 .PHONY : CMakeFiles/ContinuousCoverage.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ContinuousCoverage.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ContinuousCoverage.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/ContinuousCoverage.dir/rule
 
 # Convenience name for target.
@@ -726,14 +668,14 @@ CMakeFiles/ContinuousCoverage.dir/clean:
 CMakeFiles/ExperimentalConfigure.dir/all:
 	$(MAKE) -f CMakeFiles/ExperimentalConfigure.dir/build.make CMakeFiles/ExperimentalConfigure.dir/depend
 	$(MAKE) -f CMakeFiles/ExperimentalConfigure.dir/build.make CMakeFiles/ExperimentalConfigure.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ExperimentalConfigure"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ExperimentalConfigure"
 .PHONY : CMakeFiles/ExperimentalConfigure.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ExperimentalConfigure.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ExperimentalConfigure.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/ExperimentalConfigure.dir/rule
 
 # Convenience name for target.
@@ -753,14 +695,14 @@ CMakeFiles/ExperimentalConfigure.dir/clean:
 CMakeFiles/Continuous.dir/all:
 	$(MAKE) -f CMakeFiles/Continuous.dir/build.make CMakeFiles/Continuous.dir/depend
 	$(MAKE) -f CMakeFiles/Continuous.dir/build.make CMakeFiles/Continuous.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target Continuous"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target Continuous"
 .PHONY : CMakeFiles/Continuous.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Continuous.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Continuous.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/Continuous.dir/rule
 
 # Convenience name for target.
@@ -780,14 +722,14 @@ CMakeFiles/Continuous.dir/clean:
 CMakeFiles/Nightly.dir/all:
 	$(MAKE) -f CMakeFiles/Nightly.dir/build.make CMakeFiles/Nightly.dir/depend
 	$(MAKE) -f CMakeFiles/Nightly.dir/build.make CMakeFiles/Nightly.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target Nightly"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target Nightly"
 .PHONY : CMakeFiles/Nightly.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Nightly.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Nightly.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/Nightly.dir/rule
 
 # Convenience name for target.
@@ -807,14 +749,14 @@ CMakeFiles/Nightly.dir/clean:
 CMakeFiles/NightlySubmit.dir/all:
 	$(MAKE) -f CMakeFiles/NightlySubmit.dir/build.make CMakeFiles/NightlySubmit.dir/depend
 	$(MAKE) -f CMakeFiles/NightlySubmit.dir/build.make CMakeFiles/NightlySubmit.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlySubmit"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlySubmit"
 .PHONY : CMakeFiles/NightlySubmit.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/NightlySubmit.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NightlySubmit.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/NightlySubmit.dir/rule
 
 # Convenience name for target.
@@ -828,20 +770,48 @@ CMakeFiles/NightlySubmit.dir/clean:
 .PHONY : CMakeFiles/NightlySubmit.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/yaos_evaluator.dir
+
+# All Build rule for target.
+CMakeFiles/yaos_evaluator.dir/all: CMakeFiles/yaos_app_lib_shared.dir/all
+CMakeFiles/yaos_evaluator.dir/all: CMakeFiles/yaos_app_lib.dir/all
+	$(MAKE) -f CMakeFiles/yaos_evaluator.dir/build.make CMakeFiles/yaos_evaluator.dir/depend
+	$(MAKE) -f CMakeFiles/yaos_evaluator.dir/build.make CMakeFiles/yaos_evaluator.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num=20,21 "Built target yaos_evaluator"
+.PHONY : CMakeFiles/yaos_evaluator.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/yaos_evaluator.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 14
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/yaos_evaluator.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
+.PHONY : CMakeFiles/yaos_evaluator.dir/rule
+
+# Convenience name for target.
+yaos_evaluator: CMakeFiles/yaos_evaluator.dir/rule
+
+.PHONY : yaos_evaluator
+
+# clean rule for target.
+CMakeFiles/yaos_evaluator.dir/clean:
+	$(MAKE) -f CMakeFiles/yaos_evaluator.dir/build.make CMakeFiles/yaos_evaluator.dir/clean
+.PHONY : CMakeFiles/yaos_evaluator.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/NightlyStart.dir
 
 # All Build rule for target.
 CMakeFiles/NightlyStart.dir/all:
 	$(MAKE) -f CMakeFiles/NightlyStart.dir/build.make CMakeFiles/NightlyStart.dir/depend
 	$(MAKE) -f CMakeFiles/NightlyStart.dir/build.make CMakeFiles/NightlyStart.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlyStart"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlyStart"
 .PHONY : CMakeFiles/NightlyStart.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/NightlyStart.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NightlyStart.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/NightlyStart.dir/rule
 
 # Convenience name for target.
@@ -861,14 +831,14 @@ CMakeFiles/NightlyStart.dir/clean:
 CMakeFiles/ExperimentalCoverage.dir/all:
 	$(MAKE) -f CMakeFiles/ExperimentalCoverage.dir/build.make CMakeFiles/ExperimentalCoverage.dir/depend
 	$(MAKE) -f CMakeFiles/ExperimentalCoverage.dir/build.make CMakeFiles/ExperimentalCoverage.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ExperimentalCoverage"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ExperimentalCoverage"
 .PHONY : CMakeFiles/ExperimentalCoverage.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ExperimentalCoverage.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ExperimentalCoverage.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/ExperimentalCoverage.dir/rule
 
 # Convenience name for target.
@@ -888,14 +858,14 @@ CMakeFiles/ExperimentalCoverage.dir/clean:
 CMakeFiles/NightlyCoverage.dir/all:
 	$(MAKE) -f CMakeFiles/NightlyCoverage.dir/build.make CMakeFiles/NightlyCoverage.dir/depend
 	$(MAKE) -f CMakeFiles/NightlyCoverage.dir/build.make CMakeFiles/NightlyCoverage.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlyCoverage"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlyCoverage"
 .PHONY : CMakeFiles/NightlyCoverage.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/NightlyCoverage.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NightlyCoverage.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/NightlyCoverage.dir/rule
 
 # Convenience name for target.
@@ -915,14 +885,14 @@ CMakeFiles/NightlyCoverage.dir/clean:
 CMakeFiles/ExperimentalStart.dir/all:
 	$(MAKE) -f CMakeFiles/ExperimentalStart.dir/build.make CMakeFiles/ExperimentalStart.dir/depend
 	$(MAKE) -f CMakeFiles/ExperimentalStart.dir/build.make CMakeFiles/ExperimentalStart.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ExperimentalStart"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ExperimentalStart"
 .PHONY : CMakeFiles/ExperimentalStart.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ExperimentalStart.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ExperimentalStart.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/ExperimentalStart.dir/rule
 
 # Convenience name for target.
@@ -942,14 +912,14 @@ CMakeFiles/ExperimentalStart.dir/clean:
 CMakeFiles/NightlyBuild.dir/all:
 	$(MAKE) -f CMakeFiles/NightlyBuild.dir/build.make CMakeFiles/NightlyBuild.dir/depend
 	$(MAKE) -f CMakeFiles/NightlyBuild.dir/build.make CMakeFiles/NightlyBuild.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlyBuild"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target NightlyBuild"
 .PHONY : CMakeFiles/NightlyBuild.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/NightlyBuild.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NightlyBuild.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/NightlyBuild.dir/rule
 
 # Convenience name for target.
@@ -969,14 +939,14 @@ CMakeFiles/NightlyBuild.dir/clean:
 CMakeFiles/ExperimentalBuild.dir/all:
 	$(MAKE) -f CMakeFiles/ExperimentalBuild.dir/build.make CMakeFiles/ExperimentalBuild.dir/depend
 	$(MAKE) -f CMakeFiles/ExperimentalBuild.dir/build.make CMakeFiles/ExperimentalBuild.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ExperimentalBuild"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ExperimentalBuild"
 .PHONY : CMakeFiles/ExperimentalBuild.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ExperimentalBuild.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ExperimentalBuild.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/ExperimentalBuild.dir/rule
 
 # Convenience name for target.
@@ -996,14 +966,14 @@ CMakeFiles/ExperimentalBuild.dir/clean:
 CMakeFiles/ExperimentalUpdate.dir/all:
 	$(MAKE) -f CMakeFiles/ExperimentalUpdate.dir/build.make CMakeFiles/ExperimentalUpdate.dir/depend
 	$(MAKE) -f CMakeFiles/ExperimentalUpdate.dir/build.make CMakeFiles/ExperimentalUpdate.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ExperimentalUpdate"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ExperimentalUpdate"
 .PHONY : CMakeFiles/ExperimentalUpdate.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ExperimentalUpdate.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ExperimentalUpdate.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/ExperimentalUpdate.dir/rule
 
 # Convenience name for target.
@@ -1023,14 +993,14 @@ CMakeFiles/ExperimentalUpdate.dir/clean:
 CMakeFiles/ContinuousStart.dir/all:
 	$(MAKE) -f CMakeFiles/ContinuousStart.dir/build.make CMakeFiles/ContinuousStart.dir/depend
 	$(MAKE) -f CMakeFiles/ContinuousStart.dir/build.make CMakeFiles/ContinuousStart.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ContinuousStart"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ContinuousStart"
 .PHONY : CMakeFiles/ContinuousStart.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ContinuousStart.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ContinuousStart.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/ContinuousStart.dir/rule
 
 # Convenience name for target.
@@ -1050,14 +1020,14 @@ CMakeFiles/ContinuousStart.dir/clean:
 CMakeFiles/ContinuousMemCheck.dir/all:
 	$(MAKE) -f CMakeFiles/ContinuousMemCheck.dir/build.make CMakeFiles/ContinuousMemCheck.dir/depend
 	$(MAKE) -f CMakeFiles/ContinuousMemCheck.dir/build.make CMakeFiles/ContinuousMemCheck.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ContinuousMemCheck"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ContinuousMemCheck"
 .PHONY : CMakeFiles/ContinuousMemCheck.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ContinuousMemCheck.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ContinuousMemCheck.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/ContinuousMemCheck.dir/rule
 
 # Convenience name for target.
@@ -1077,14 +1047,14 @@ CMakeFiles/ContinuousMemCheck.dir/clean:
 CMakeFiles/ContinuousTest.dir/all:
 	$(MAKE) -f CMakeFiles/ContinuousTest.dir/build.make CMakeFiles/ContinuousTest.dir/depend
 	$(MAKE) -f CMakeFiles/ContinuousTest.dir/build.make CMakeFiles/ContinuousTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ContinuousTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ContinuousTest"
 .PHONY : CMakeFiles/ContinuousTest.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ContinuousTest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ContinuousTest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/ContinuousTest.dir/rule
 
 # Convenience name for target.
@@ -1104,14 +1074,14 @@ CMakeFiles/ContinuousTest.dir/clean:
 CMakeFiles/ContinuousSubmit.dir/all:
 	$(MAKE) -f CMakeFiles/ContinuousSubmit.dir/build.make CMakeFiles/ContinuousSubmit.dir/depend
 	$(MAKE) -f CMakeFiles/ContinuousSubmit.dir/build.make CMakeFiles/ContinuousSubmit.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ContinuousSubmit"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num= "Built target ContinuousSubmit"
 .PHONY : CMakeFiles/ContinuousSubmit.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ContinuousSubmit.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ContinuousSubmit.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : CMakeFiles/ContinuousSubmit.dir/rule
 
 # Convenience name for target.
@@ -1131,14 +1101,14 @@ CMakeFiles/ContinuousSubmit.dir/clean:
 _deps/doctest-build/CMakeFiles/doctest_with_main.dir/all:
 	$(MAKE) -f _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build.make _deps/doctest-build/CMakeFiles/doctest_with_main.dir/depend
 	$(MAKE) -f _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build.make _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num=2,3 "Built target doctest_with_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num=2,3 "Built target doctest_with_main"
 .PHONY : _deps/doctest-build/CMakeFiles/doctest_with_main.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/doctest-build/CMakeFiles/doctest_with_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 _deps/doctest-build/CMakeFiles/doctest_with_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : _deps/doctest-build/CMakeFiles/doctest_with_main.dir/rule
 
 # Convenience name for target.
@@ -1155,18 +1125,18 @@ _deps/doctest-build/CMakeFiles/doctest_with_main.dir/clean:
 # Target rules for target test/CMakeFiles/unit_tests.dir
 
 # All Build rule for target.
-test/CMakeFiles/unit_tests.dir/all: CMakeFiles/vote_app_lib.dir/all
-test/CMakeFiles/unit_tests.dir/all: CMakeFiles/vote_app_lib_shared.dir/all
+test/CMakeFiles/unit_tests.dir/all: CMakeFiles/yaos_app_lib_shared.dir/all
+test/CMakeFiles/unit_tests.dir/all: CMakeFiles/yaos_app_lib.dir/all
 	$(MAKE) -f test/CMakeFiles/unit_tests.dir/build.make test/CMakeFiles/unit_tests.dir/depend
 	$(MAKE) -f test/CMakeFiles/unit_tests.dir/build.make test/CMakeFiles/unit_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num=4,5 "Built target unit_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num=6,7 "Built target unit_tests"
 .PHONY : test/CMakeFiles/unit_tests.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/unit_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 19
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 14
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/unit_tests.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : test/CMakeFiles/unit_tests.dir/rule
 
 # Convenience name for target.

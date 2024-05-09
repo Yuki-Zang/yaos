@@ -1,6 +1,6 @@
 /*
 Usage:
-    initLogger();
+    initLogger(logging::trivial::severity_level::trace);
     src::severity_logger<logging::trivial::severity_level> lg;
     CUSTOM_LOG(lg, debug) << "A regular message";
 
@@ -51,6 +51,5 @@ ValueType set_get_attrib(const char *name, ValueType value) {
 }
 
 // Functions
-void initLogger(
-    logging::trivial::severity_level level = logging::trivial::info);
+void initLogger(logging::trivial::severity_level level);
 std::string path_to_filename(std::string path);

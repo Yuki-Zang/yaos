@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /workspaces/vote-Yuki-Zang
+CMAKE_SOURCE_DIR = /workspaces/yaos-Yuki-Zang
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /workspaces/vote-Yuki-Zang/build
+CMAKE_BINARY_DIR = /workspaces/yaos-Yuki-Zang/build
 
 # Utility rule file for ContinuousMemCheck.
 
@@ -71,6 +71,6 @@ CMakeFiles/ContinuousMemCheck.dir/clean:
 .PHONY : CMakeFiles/ContinuousMemCheck.dir/clean
 
 CMakeFiles/ContinuousMemCheck.dir/depend:
-	cd /workspaces/vote-Yuki-Zang/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /workspaces/vote-Yuki-Zang /workspaces/vote-Yuki-Zang /workspaces/vote-Yuki-Zang/build /workspaces/vote-Yuki-Zang/build /workspaces/vote-Yuki-Zang/build/CMakeFiles/ContinuousMemCheck.dir/DependInfo.cmake --color=$(COLOR)
+	cd /workspaces/yaos-Yuki-Zang/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /workspaces/yaos-Yuki-Zang /workspaces/yaos-Yuki-Zang /workspaces/yaos-Yuki-Zang/build /workspaces/yaos-Yuki-Zang/build /workspaces/yaos-Yuki-Zang/build/CMakeFiles/ContinuousMemCheck.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ContinuousMemCheck.dir/depend
 

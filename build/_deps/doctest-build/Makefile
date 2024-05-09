@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /workspaces/vote-Yuki-Zang
+CMAKE_SOURCE_DIR = /workspaces/yaos-Yuki-Zang
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /workspaces/vote-Yuki-Zang/build
+CMAKE_BINARY_DIR = /workspaces/yaos-Yuki-Zang/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /workspaces/vote-Yuki-Zang/build && $(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles /workspaces/vote-Yuki-Zang/build/_deps/doctest-build/CMakeFiles/progress.marks
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/doctest-build/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	cd /workspaces/yaos-Yuki-Zang/build && $(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles /workspaces/yaos-Yuki-Zang/build/_deps/doctest-build/CMakeFiles/progress.marks
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/doctest-build/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/doctest-build/clean
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/doctest-build/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/doctest-build/preinstall
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/doctest-build/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/doctest-build/preinstall
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/doctest-build/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /workspaces/vote-Yuki-Zang/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /workspaces/yaos-Yuki-Zang/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 _deps/doctest-build/CMakeFiles/doctest_with_main.dir/rule:
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/doctest-build/CMakeFiles/doctest_with_main.dir/rule
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/doctest-build/CMakeFiles/doctest_with_main.dir/rule
 .PHONY : _deps/doctest-build/CMakeFiles/doctest_with_main.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ doctest_with_main: _deps/doctest-build/CMakeFiles/doctest_with_main.dir/rule
 
 # fast build rule for target.
 doctest_with_main/fast:
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build.make _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build.make _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build
 .PHONY : doctest_with_main/fast
 
 doctest/parts/doctest.o: doctest/parts/doctest.cpp.o
@@ -188,7 +188,7 @@ doctest/parts/doctest.o: doctest/parts/doctest.cpp.o
 
 # target to build an object file
 doctest/parts/doctest.cpp.o:
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build.make _deps/doctest-build/CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.o
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build.make _deps/doctest-build/CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.o
 .PHONY : doctest/parts/doctest.cpp.o
 
 doctest/parts/doctest.i: doctest/parts/doctest.cpp.i
@@ -197,7 +197,7 @@ doctest/parts/doctest.i: doctest/parts/doctest.cpp.i
 
 # target to preprocess a source file
 doctest/parts/doctest.cpp.i:
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build.make _deps/doctest-build/CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.i
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build.make _deps/doctest-build/CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.i
 .PHONY : doctest/parts/doctest.cpp.i
 
 doctest/parts/doctest.s: doctest/parts/doctest.cpp.s
@@ -206,7 +206,7 @@ doctest/parts/doctest.s: doctest/parts/doctest.cpp.s
 
 # target to generate assembly for a file
 doctest/parts/doctest.cpp.s:
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build.make _deps/doctest-build/CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.s
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build.make _deps/doctest-build/CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.s
 .PHONY : doctest/parts/doctest.cpp.s
 
 # Help Target
@@ -237,6 +237,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /workspaces/vote-Yuki-Zang/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /workspaces/yaos-Yuki-Zang/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

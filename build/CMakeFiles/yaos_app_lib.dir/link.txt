@@ -1,0 +1,2 @@
+/usr/bin/ar qc libyaos_app_lib.a  CMakeFiles/yaos_app_lib.dir/src/pkg/garbler.cxx.o CMakeFiles/yaos_app_lib.dir/src/pkg/evaluator.cxx.o CMakeFiles/yaos_app_lib.dir/src/drivers/cli_driver.cxx.o CMakeFiles/yaos_app_lib.dir/src/drivers/crypto_driver.cxx.o CMakeFiles/yaos_app_lib.dir/src/drivers/network_driver.cxx.o CMakeFiles/yaos_app_lib.dir/src/drivers/ot_driver.cxx.o
+/usr/bin/ranlib libyaos_app_lib.a

@@ -9,6 +9,7 @@
 #include <crypto++/cryptlib.h>
 #include <crypto++/dh.h>
 #include <crypto++/dh2.h>
+#include <crypto++/dsa.h>
 #include <crypto++/elgamal.h>
 #include <crypto++/files.h>
 #include <crypto++/filters.h>
@@ -20,9 +21,7 @@
 #include <crypto++/nbtheory.h>
 #include <crypto++/osrng.h>
 #include <crypto++/rijndael.h>
-#include <crypto++/rsa.h>
 #include <crypto++/sha.h>
-#include <crypto++/sha3.h>
 
 #include "../../include-shared/messages.hpp"
 
@@ -52,23 +51,6 @@ public:
   std::string HMAC_generate(SecByteBlock key, std::string ciphertext);
   bool HMAC_verify(SecByteBlock key, std::string ciphertext, std::string hmac);
 
-  std::pair<CryptoPP::Integer, CryptoPP::Integer> EG_generate();
-
-  std::pair<RSA::PrivateKey, RSA::PublicKey> RSA_generate_keys();
-  std::string RSA_sign(const RSA::PrivateKey &RSA_signing_key,
-                       std::vector<unsigned char> message);
-  bool RSA_verify(const RSA::PublicKey &verification_key,
-                  std::vector<unsigned char> message, std::string signature);
-
-  std::pair<CryptoPP::Integer, CryptoPP::Integer>
-  RSA_BLIND_blind(const RSA::PublicKey &pk, Serializable &msg);
-  CryptoPP::Integer RSA_BLIND_sign(const RSA::PrivateKey &sk,
-                                   CryptoPP::Integer blinded_msg);
-  CryptoPP::Integer RSA_BLIND_unblind(const RSA::PublicKey &pk,
-                                      CryptoPP::Integer signed_blind_msg,
-                                      CryptoPP::Integer blind);
-  bool RSA_BLIND_verify(const RSA::PublicKey &pk, Serializable &msg,
-                        CryptoPP::Integer signature);
-
-  SecByteBlock FDH_hash(SecByteBlock input, int domain_size);
+  CryptoPP::SecByteBlock hash_inputs(CryptoPP::SecByteBlock &lhs,
+                                     CryptoPP::SecByteBlock &rhs);
 };

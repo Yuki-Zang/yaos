@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /workspaces/vote-Yuki-Zang
+CMAKE_SOURCE_DIR = /workspaces/yaos-Yuki-Zang
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /workspaces/vote-Yuki-Zang/build
+CMAKE_BINARY_DIR = /workspaces/yaos-Yuki-Zang/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /workspaces/vote-Yuki-Zang/build && $(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles /workspaces/vote-Yuki-Zang/build/test/CMakeFiles/progress.marks
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 test/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	cd /workspaces/yaos-Yuki-Zang/build && $(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles /workspaces/yaos-Yuki-Zang/build/test/CMakeFiles/progress.marks
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 test/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 test/clean
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 test/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /workspaces/vote-Yuki-Zang/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /workspaces/yaos-Yuki-Zang/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 test/CMakeFiles/unit_tests.dir/rule:
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/unit_tests.dir/rule
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/unit_tests.dir/rule
 .PHONY : test/CMakeFiles/unit_tests.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ unit_tests: test/CMakeFiles/unit_tests.dir/rule
 
 # fast build rule for target.
 unit_tests/fast:
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f test/CMakeFiles/unit_tests.dir/build.make test/CMakeFiles/unit_tests.dir/build
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f test/CMakeFiles/unit_tests.dir/build.make test/CMakeFiles/unit_tests.dir/build
 .PHONY : unit_tests/fast
 
 test_provided.o: test_provided.cxx.o
@@ -188,7 +188,7 @@ test_provided.o: test_provided.cxx.o
 
 # target to build an object file
 test_provided.cxx.o:
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f test/CMakeFiles/unit_tests.dir/build.make test/CMakeFiles/unit_tests.dir/test_provided.cxx.o
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f test/CMakeFiles/unit_tests.dir/build.make test/CMakeFiles/unit_tests.dir/test_provided.cxx.o
 .PHONY : test_provided.cxx.o
 
 test_provided.i: test_provided.cxx.i
@@ -197,7 +197,7 @@ test_provided.i: test_provided.cxx.i
 
 # target to preprocess a source file
 test_provided.cxx.i:
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f test/CMakeFiles/unit_tests.dir/build.make test/CMakeFiles/unit_tests.dir/test_provided.cxx.i
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f test/CMakeFiles/unit_tests.dir/build.make test/CMakeFiles/unit_tests.dir/test_provided.cxx.i
 .PHONY : test_provided.cxx.i
 
 test_provided.s: test_provided.cxx.s
@@ -206,7 +206,7 @@ test_provided.s: test_provided.cxx.s
 
 # target to generate assembly for a file
 test_provided.cxx.s:
-	cd /workspaces/vote-Yuki-Zang/build && $(MAKE) -f test/CMakeFiles/unit_tests.dir/build.make test/CMakeFiles/unit_tests.dir/test_provided.cxx.s
+	cd /workspaces/yaos-Yuki-Zang/build && $(MAKE) -f test/CMakeFiles/unit_tests.dir/build.make test/CMakeFiles/unit_tests.dir/test_provided.cxx.s
 .PHONY : test_provided.cxx.s
 
 # Help Target
@@ -237,6 +237,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /workspaces/vote-Yuki-Zang/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /workspaces/yaos-Yuki-Zang/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

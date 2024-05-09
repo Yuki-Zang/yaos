@@ -1,4 +1,4 @@
-# Install script for directory: /workspaces/vote-Yuki-Zang
+# Install script for directory: /workspaces/yaos-Yuki-Zang
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/workspaces/vote-Yuki-Zang/build/_deps/doctest-build/cmake_install.cmake")
-  include("/workspaces/vote-Yuki-Zang/build/test/cmake_install.cmake")
+  include("/workspaces/yaos-Yuki-Zang/build/_deps/doctest-build/cmake_install.cmake")
+  include("/workspaces/yaos-Yuki-Zang/build/test/cmake_install.cmake")
 
 endif()
 
@@ -52,5 +52,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/workspaces/vote-Yuki-Zang/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/workspaces/yaos-Yuki-Zang/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

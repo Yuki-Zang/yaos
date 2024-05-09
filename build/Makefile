@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /workspaces/vote-Yuki-Zang
+CMAKE_SOURCE_DIR = /workspaces/yaos-Yuki-Zang
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /workspaces/vote-Yuki-Zang/build
+CMAKE_BINARY_DIR = /workspaces/yaos-Yuki-Zang/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,9 +137,9 @@ install/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles /workspaces/vote-Yuki-Zang/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles /workspaces/yaos-Yuki-Zang/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/vote-Yuki-Zang/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/yaos-Yuki-Zang/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -181,82 +181,43 @@ check/fast:
 .PHONY : check/fast
 
 #=============================================================================
-# Target rules for targets named vote_registrar
+# Target rules for targets named ot_test
 
 # Build rule for target.
-vote_registrar: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vote_registrar
-.PHONY : vote_registrar
+ot_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ot_test
+.PHONY : ot_test
 
 # fast build rule for target.
-vote_registrar/fast:
-	$(MAKE) -f CMakeFiles/vote_registrar.dir/build.make CMakeFiles/vote_registrar.dir/build
-.PHONY : vote_registrar/fast
+ot_test/fast:
+	$(MAKE) -f CMakeFiles/ot_test.dir/build.make CMakeFiles/ot_test.dir/build
+.PHONY : ot_test/fast
 
 #=============================================================================
-# Target rules for targets named vote_arbiter
+# Target rules for targets named yaos_garbler
 
 # Build rule for target.
-vote_arbiter: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vote_arbiter
-.PHONY : vote_arbiter
+yaos_garbler: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 yaos_garbler
+.PHONY : yaos_garbler
 
 # fast build rule for target.
-vote_arbiter/fast:
-	$(MAKE) -f CMakeFiles/vote_arbiter.dir/build.make CMakeFiles/vote_arbiter.dir/build
-.PHONY : vote_arbiter/fast
+yaos_garbler/fast:
+	$(MAKE) -f CMakeFiles/yaos_garbler.dir/build.make CMakeFiles/yaos_garbler.dir/build
+.PHONY : yaos_garbler/fast
 
 #=============================================================================
-# Target rules for targets named vote_voter
+# Target rules for targets named yaos_app_lib_shared
 
 # Build rule for target.
-vote_voter: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vote_voter
-.PHONY : vote_voter
+yaos_app_lib_shared: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 yaos_app_lib_shared
+.PHONY : yaos_app_lib_shared
 
 # fast build rule for target.
-vote_voter/fast:
-	$(MAKE) -f CMakeFiles/vote_voter.dir/build.make CMakeFiles/vote_voter.dir/build
-.PHONY : vote_voter/fast
-
-#=============================================================================
-# Target rules for targets named vote_app_lib
-
-# Build rule for target.
-vote_app_lib: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vote_app_lib
-.PHONY : vote_app_lib
-
-# fast build rule for target.
-vote_app_lib/fast:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/build
-.PHONY : vote_app_lib/fast
-
-#=============================================================================
-# Target rules for targets named vote_app_lib_shared
-
-# Build rule for target.
-vote_app_lib_shared: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vote_app_lib_shared
-.PHONY : vote_app_lib_shared
-
-# fast build rule for target.
-vote_app_lib_shared/fast:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/build
-.PHONY : vote_app_lib_shared/fast
-
-#=============================================================================
-# Target rules for targets named vote_tallyer
-
-# Build rule for target.
-vote_tallyer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vote_tallyer
-.PHONY : vote_tallyer
-
-# fast build rule for target.
-vote_tallyer/fast:
-	$(MAKE) -f CMakeFiles/vote_tallyer.dir/build.make CMakeFiles/vote_tallyer.dir/build
-.PHONY : vote_tallyer/fast
+yaos_app_lib_shared/fast:
+	$(MAKE) -f CMakeFiles/yaos_app_lib_shared.dir/build.make CMakeFiles/yaos_app_lib_shared.dir/build
+.PHONY : yaos_app_lib_shared/fast
 
 #=============================================================================
 # Target rules for targets named NightlyMemCheck
@@ -270,6 +231,19 @@ NightlyMemCheck: cmake_check_build_system
 NightlyMemCheck/fast:
 	$(MAKE) -f CMakeFiles/NightlyMemCheck.dir/build.make CMakeFiles/NightlyMemCheck.dir/build
 .PHONY : NightlyMemCheck/fast
+
+#=============================================================================
+# Target rules for targets named yaos_app_lib
+
+# Build rule for target.
+yaos_app_lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 yaos_app_lib
+.PHONY : yaos_app_lib
+
+# fast build rule for target.
+yaos_app_lib/fast:
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/build
+.PHONY : yaos_app_lib/fast
 
 #=============================================================================
 # Target rules for targets named NightlyTest
@@ -493,6 +467,19 @@ NightlySubmit/fast:
 .PHONY : NightlySubmit/fast
 
 #=============================================================================
+# Target rules for targets named yaos_evaluator
+
+# Build rule for target.
+yaos_evaluator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 yaos_evaluator
+.PHONY : yaos_evaluator
+
+# fast build rule for target.
+yaos_evaluator/fast:
+	$(MAKE) -f CMakeFiles/yaos_evaluator.dir/build.make CMakeFiles/yaos_evaluator.dir/build
+.PHONY : yaos_evaluator/fast
+
+#=============================================================================
 # Target rules for targets named NightlyStart
 
 # Build rule for target.
@@ -661,59 +648,32 @@ unit_tests/fast:
 	$(MAKE) -f test/CMakeFiles/unit_tests.dir/build.make test/CMakeFiles/unit_tests.dir/build
 .PHONY : unit_tests/fast
 
-src-shared/config.o: src-shared/config.cxx.o
+src-shared/circuit.o: src-shared/circuit.cxx.o
 
-.PHONY : src-shared/config.o
-
-# target to build an object file
-src-shared/config.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/src-shared/config.cxx.o
-.PHONY : src-shared/config.cxx.o
-
-src-shared/config.i: src-shared/config.cxx.i
-
-.PHONY : src-shared/config.i
-
-# target to preprocess a source file
-src-shared/config.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/src-shared/config.cxx.i
-.PHONY : src-shared/config.cxx.i
-
-src-shared/config.s: src-shared/config.cxx.s
-
-.PHONY : src-shared/config.s
-
-# target to generate assembly for a file
-src-shared/config.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/src-shared/config.cxx.s
-.PHONY : src-shared/config.cxx.s
-
-src-shared/keyloaders.o: src-shared/keyloaders.cxx.o
-
-.PHONY : src-shared/keyloaders.o
+.PHONY : src-shared/circuit.o
 
 # target to build an object file
-src-shared/keyloaders.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/src-shared/keyloaders.cxx.o
-.PHONY : src-shared/keyloaders.cxx.o
+src-shared/circuit.cxx.o:
+	$(MAKE) -f CMakeFiles/yaos_app_lib_shared.dir/build.make CMakeFiles/yaos_app_lib_shared.dir/src-shared/circuit.cxx.o
+.PHONY : src-shared/circuit.cxx.o
 
-src-shared/keyloaders.i: src-shared/keyloaders.cxx.i
+src-shared/circuit.i: src-shared/circuit.cxx.i
 
-.PHONY : src-shared/keyloaders.i
+.PHONY : src-shared/circuit.i
 
 # target to preprocess a source file
-src-shared/keyloaders.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/src-shared/keyloaders.cxx.i
-.PHONY : src-shared/keyloaders.cxx.i
+src-shared/circuit.cxx.i:
+	$(MAKE) -f CMakeFiles/yaos_app_lib_shared.dir/build.make CMakeFiles/yaos_app_lib_shared.dir/src-shared/circuit.cxx.i
+.PHONY : src-shared/circuit.cxx.i
 
-src-shared/keyloaders.s: src-shared/keyloaders.cxx.s
+src-shared/circuit.s: src-shared/circuit.cxx.s
 
-.PHONY : src-shared/keyloaders.s
+.PHONY : src-shared/circuit.s
 
 # target to generate assembly for a file
-src-shared/keyloaders.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/src-shared/keyloaders.cxx.s
-.PHONY : src-shared/keyloaders.cxx.s
+src-shared/circuit.cxx.s:
+	$(MAKE) -f CMakeFiles/yaos_app_lib_shared.dir/build.make CMakeFiles/yaos_app_lib_shared.dir/src-shared/circuit.cxx.s
+.PHONY : src-shared/circuit.cxx.s
 
 src-shared/logger.o: src-shared/logger.cxx.o
 
@@ -721,7 +681,7 @@ src-shared/logger.o: src-shared/logger.cxx.o
 
 # target to build an object file
 src-shared/logger.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/src-shared/logger.cxx.o
+	$(MAKE) -f CMakeFiles/yaos_app_lib_shared.dir/build.make CMakeFiles/yaos_app_lib_shared.dir/src-shared/logger.cxx.o
 .PHONY : src-shared/logger.cxx.o
 
 src-shared/logger.i: src-shared/logger.cxx.i
@@ -730,7 +690,7 @@ src-shared/logger.i: src-shared/logger.cxx.i
 
 # target to preprocess a source file
 src-shared/logger.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/src-shared/logger.cxx.i
+	$(MAKE) -f CMakeFiles/yaos_app_lib_shared.dir/build.make CMakeFiles/yaos_app_lib_shared.dir/src-shared/logger.cxx.i
 .PHONY : src-shared/logger.cxx.i
 
 src-shared/logger.s: src-shared/logger.cxx.s
@@ -739,7 +699,7 @@ src-shared/logger.s: src-shared/logger.cxx.s
 
 # target to generate assembly for a file
 src-shared/logger.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/src-shared/logger.cxx.s
+	$(MAKE) -f CMakeFiles/yaos_app_lib_shared.dir/build.make CMakeFiles/yaos_app_lib_shared.dir/src-shared/logger.cxx.s
 .PHONY : src-shared/logger.cxx.s
 
 src-shared/messages.o: src-shared/messages.cxx.o
@@ -748,7 +708,7 @@ src-shared/messages.o: src-shared/messages.cxx.o
 
 # target to build an object file
 src-shared/messages.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/src-shared/messages.cxx.o
+	$(MAKE) -f CMakeFiles/yaos_app_lib_shared.dir/build.make CMakeFiles/yaos_app_lib_shared.dir/src-shared/messages.cxx.o
 .PHONY : src-shared/messages.cxx.o
 
 src-shared/messages.i: src-shared/messages.cxx.i
@@ -757,7 +717,7 @@ src-shared/messages.i: src-shared/messages.cxx.i
 
 # target to preprocess a source file
 src-shared/messages.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/src-shared/messages.cxx.i
+	$(MAKE) -f CMakeFiles/yaos_app_lib_shared.dir/build.make CMakeFiles/yaos_app_lib_shared.dir/src-shared/messages.cxx.i
 .PHONY : src-shared/messages.cxx.i
 
 src-shared/messages.s: src-shared/messages.cxx.s
@@ -766,7 +726,7 @@ src-shared/messages.s: src-shared/messages.cxx.s
 
 # target to generate assembly for a file
 src-shared/messages.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/src-shared/messages.cxx.s
+	$(MAKE) -f CMakeFiles/yaos_app_lib_shared.dir/build.make CMakeFiles/yaos_app_lib_shared.dir/src-shared/messages.cxx.s
 .PHONY : src-shared/messages.cxx.s
 
 src-shared/util.o: src-shared/util.cxx.o
@@ -775,7 +735,7 @@ src-shared/util.o: src-shared/util.cxx.o
 
 # target to build an object file
 src-shared/util.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/src-shared/util.cxx.o
+	$(MAKE) -f CMakeFiles/yaos_app_lib_shared.dir/build.make CMakeFiles/yaos_app_lib_shared.dir/src-shared/util.cxx.o
 .PHONY : src-shared/util.cxx.o
 
 src-shared/util.i: src-shared/util.cxx.i
@@ -784,7 +744,7 @@ src-shared/util.i: src-shared/util.cxx.i
 
 # target to preprocess a source file
 src-shared/util.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/src-shared/util.cxx.i
+	$(MAKE) -f CMakeFiles/yaos_app_lib_shared.dir/build.make CMakeFiles/yaos_app_lib_shared.dir/src-shared/util.cxx.i
 .PHONY : src-shared/util.cxx.i
 
 src-shared/util.s: src-shared/util.cxx.s
@@ -793,116 +753,89 @@ src-shared/util.s: src-shared/util.cxx.s
 
 # target to generate assembly for a file
 src-shared/util.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_app_lib_shared.dir/build.make CMakeFiles/vote_app_lib_shared.dir/src-shared/util.cxx.s
+	$(MAKE) -f CMakeFiles/yaos_app_lib_shared.dir/build.make CMakeFiles/yaos_app_lib_shared.dir/src-shared/util.cxx.s
 .PHONY : src-shared/util.cxx.s
 
-src/cmd/arbiter.o: src/cmd/arbiter.cxx.o
+src/cmd/evaluator.o: src/cmd/evaluator.cxx.o
 
-.PHONY : src/cmd/arbiter.o
-
-# target to build an object file
-src/cmd/arbiter.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_arbiter.dir/build.make CMakeFiles/vote_arbiter.dir/src/cmd/arbiter.cxx.o
-.PHONY : src/cmd/arbiter.cxx.o
-
-src/cmd/arbiter.i: src/cmd/arbiter.cxx.i
-
-.PHONY : src/cmd/arbiter.i
-
-# target to preprocess a source file
-src/cmd/arbiter.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_arbiter.dir/build.make CMakeFiles/vote_arbiter.dir/src/cmd/arbiter.cxx.i
-.PHONY : src/cmd/arbiter.cxx.i
-
-src/cmd/arbiter.s: src/cmd/arbiter.cxx.s
-
-.PHONY : src/cmd/arbiter.s
-
-# target to generate assembly for a file
-src/cmd/arbiter.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_arbiter.dir/build.make CMakeFiles/vote_arbiter.dir/src/cmd/arbiter.cxx.s
-.PHONY : src/cmd/arbiter.cxx.s
-
-src/cmd/registrar.o: src/cmd/registrar.cxx.o
-
-.PHONY : src/cmd/registrar.o
+.PHONY : src/cmd/evaluator.o
 
 # target to build an object file
-src/cmd/registrar.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_registrar.dir/build.make CMakeFiles/vote_registrar.dir/src/cmd/registrar.cxx.o
-.PHONY : src/cmd/registrar.cxx.o
+src/cmd/evaluator.cxx.o:
+	$(MAKE) -f CMakeFiles/yaos_evaluator.dir/build.make CMakeFiles/yaos_evaluator.dir/src/cmd/evaluator.cxx.o
+.PHONY : src/cmd/evaluator.cxx.o
 
-src/cmd/registrar.i: src/cmd/registrar.cxx.i
+src/cmd/evaluator.i: src/cmd/evaluator.cxx.i
 
-.PHONY : src/cmd/registrar.i
+.PHONY : src/cmd/evaluator.i
 
 # target to preprocess a source file
-src/cmd/registrar.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_registrar.dir/build.make CMakeFiles/vote_registrar.dir/src/cmd/registrar.cxx.i
-.PHONY : src/cmd/registrar.cxx.i
+src/cmd/evaluator.cxx.i:
+	$(MAKE) -f CMakeFiles/yaos_evaluator.dir/build.make CMakeFiles/yaos_evaluator.dir/src/cmd/evaluator.cxx.i
+.PHONY : src/cmd/evaluator.cxx.i
 
-src/cmd/registrar.s: src/cmd/registrar.cxx.s
+src/cmd/evaluator.s: src/cmd/evaluator.cxx.s
 
-.PHONY : src/cmd/registrar.s
+.PHONY : src/cmd/evaluator.s
 
 # target to generate assembly for a file
-src/cmd/registrar.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_registrar.dir/build.make CMakeFiles/vote_registrar.dir/src/cmd/registrar.cxx.s
-.PHONY : src/cmd/registrar.cxx.s
+src/cmd/evaluator.cxx.s:
+	$(MAKE) -f CMakeFiles/yaos_evaluator.dir/build.make CMakeFiles/yaos_evaluator.dir/src/cmd/evaluator.cxx.s
+.PHONY : src/cmd/evaluator.cxx.s
 
-src/cmd/tallyer.o: src/cmd/tallyer.cxx.o
+src/cmd/garbler.o: src/cmd/garbler.cxx.o
 
-.PHONY : src/cmd/tallyer.o
+.PHONY : src/cmd/garbler.o
 
 # target to build an object file
-src/cmd/tallyer.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_tallyer.dir/build.make CMakeFiles/vote_tallyer.dir/src/cmd/tallyer.cxx.o
-.PHONY : src/cmd/tallyer.cxx.o
+src/cmd/garbler.cxx.o:
+	$(MAKE) -f CMakeFiles/yaos_garbler.dir/build.make CMakeFiles/yaos_garbler.dir/src/cmd/garbler.cxx.o
+.PHONY : src/cmd/garbler.cxx.o
 
-src/cmd/tallyer.i: src/cmd/tallyer.cxx.i
+src/cmd/garbler.i: src/cmd/garbler.cxx.i
 
-.PHONY : src/cmd/tallyer.i
+.PHONY : src/cmd/garbler.i
 
 # target to preprocess a source file
-src/cmd/tallyer.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_tallyer.dir/build.make CMakeFiles/vote_tallyer.dir/src/cmd/tallyer.cxx.i
-.PHONY : src/cmd/tallyer.cxx.i
+src/cmd/garbler.cxx.i:
+	$(MAKE) -f CMakeFiles/yaos_garbler.dir/build.make CMakeFiles/yaos_garbler.dir/src/cmd/garbler.cxx.i
+.PHONY : src/cmd/garbler.cxx.i
 
-src/cmd/tallyer.s: src/cmd/tallyer.cxx.s
+src/cmd/garbler.s: src/cmd/garbler.cxx.s
 
-.PHONY : src/cmd/tallyer.s
+.PHONY : src/cmd/garbler.s
 
 # target to generate assembly for a file
-src/cmd/tallyer.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_tallyer.dir/build.make CMakeFiles/vote_tallyer.dir/src/cmd/tallyer.cxx.s
-.PHONY : src/cmd/tallyer.cxx.s
+src/cmd/garbler.cxx.s:
+	$(MAKE) -f CMakeFiles/yaos_garbler.dir/build.make CMakeFiles/yaos_garbler.dir/src/cmd/garbler.cxx.s
+.PHONY : src/cmd/garbler.cxx.s
 
-src/cmd/voter.o: src/cmd/voter.cxx.o
+src/cmd/ot_test.o: src/cmd/ot_test.cxx.o
 
-.PHONY : src/cmd/voter.o
+.PHONY : src/cmd/ot_test.o
 
 # target to build an object file
-src/cmd/voter.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_voter.dir/build.make CMakeFiles/vote_voter.dir/src/cmd/voter.cxx.o
-.PHONY : src/cmd/voter.cxx.o
+src/cmd/ot_test.cxx.o:
+	$(MAKE) -f CMakeFiles/ot_test.dir/build.make CMakeFiles/ot_test.dir/src/cmd/ot_test.cxx.o
+.PHONY : src/cmd/ot_test.cxx.o
 
-src/cmd/voter.i: src/cmd/voter.cxx.i
+src/cmd/ot_test.i: src/cmd/ot_test.cxx.i
 
-.PHONY : src/cmd/voter.i
+.PHONY : src/cmd/ot_test.i
 
 # target to preprocess a source file
-src/cmd/voter.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_voter.dir/build.make CMakeFiles/vote_voter.dir/src/cmd/voter.cxx.i
-.PHONY : src/cmd/voter.cxx.i
+src/cmd/ot_test.cxx.i:
+	$(MAKE) -f CMakeFiles/ot_test.dir/build.make CMakeFiles/ot_test.dir/src/cmd/ot_test.cxx.i
+.PHONY : src/cmd/ot_test.cxx.i
 
-src/cmd/voter.s: src/cmd/voter.cxx.s
+src/cmd/ot_test.s: src/cmd/ot_test.cxx.s
 
-.PHONY : src/cmd/voter.s
+.PHONY : src/cmd/ot_test.s
 
 # target to generate assembly for a file
-src/cmd/voter.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_voter.dir/build.make CMakeFiles/vote_voter.dir/src/cmd/voter.cxx.s
-.PHONY : src/cmd/voter.cxx.s
+src/cmd/ot_test.cxx.s:
+	$(MAKE) -f CMakeFiles/ot_test.dir/build.make CMakeFiles/ot_test.dir/src/cmd/ot_test.cxx.s
+.PHONY : src/cmd/ot_test.cxx.s
 
 src/drivers/cli_driver.o: src/drivers/cli_driver.cxx.o
 
@@ -910,7 +843,7 @@ src/drivers/cli_driver.o: src/drivers/cli_driver.cxx.o
 
 # target to build an object file
 src/drivers/cli_driver.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/drivers/cli_driver.cxx.o
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/drivers/cli_driver.cxx.o
 .PHONY : src/drivers/cli_driver.cxx.o
 
 src/drivers/cli_driver.i: src/drivers/cli_driver.cxx.i
@@ -919,7 +852,7 @@ src/drivers/cli_driver.i: src/drivers/cli_driver.cxx.i
 
 # target to preprocess a source file
 src/drivers/cli_driver.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/drivers/cli_driver.cxx.i
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/drivers/cli_driver.cxx.i
 .PHONY : src/drivers/cli_driver.cxx.i
 
 src/drivers/cli_driver.s: src/drivers/cli_driver.cxx.s
@@ -928,7 +861,7 @@ src/drivers/cli_driver.s: src/drivers/cli_driver.cxx.s
 
 # target to generate assembly for a file
 src/drivers/cli_driver.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/drivers/cli_driver.cxx.s
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/drivers/cli_driver.cxx.s
 .PHONY : src/drivers/cli_driver.cxx.s
 
 src/drivers/crypto_driver.o: src/drivers/crypto_driver.cxx.o
@@ -937,7 +870,7 @@ src/drivers/crypto_driver.o: src/drivers/crypto_driver.cxx.o
 
 # target to build an object file
 src/drivers/crypto_driver.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/drivers/crypto_driver.cxx.o
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/drivers/crypto_driver.cxx.o
 .PHONY : src/drivers/crypto_driver.cxx.o
 
 src/drivers/crypto_driver.i: src/drivers/crypto_driver.cxx.i
@@ -946,7 +879,7 @@ src/drivers/crypto_driver.i: src/drivers/crypto_driver.cxx.i
 
 # target to preprocess a source file
 src/drivers/crypto_driver.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/drivers/crypto_driver.cxx.i
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/drivers/crypto_driver.cxx.i
 .PHONY : src/drivers/crypto_driver.cxx.i
 
 src/drivers/crypto_driver.s: src/drivers/crypto_driver.cxx.s
@@ -955,35 +888,8 @@ src/drivers/crypto_driver.s: src/drivers/crypto_driver.cxx.s
 
 # target to generate assembly for a file
 src/drivers/crypto_driver.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/drivers/crypto_driver.cxx.s
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/drivers/crypto_driver.cxx.s
 .PHONY : src/drivers/crypto_driver.cxx.s
-
-src/drivers/db_driver.o: src/drivers/db_driver.cxx.o
-
-.PHONY : src/drivers/db_driver.o
-
-# target to build an object file
-src/drivers/db_driver.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/drivers/db_driver.cxx.o
-.PHONY : src/drivers/db_driver.cxx.o
-
-src/drivers/db_driver.i: src/drivers/db_driver.cxx.i
-
-.PHONY : src/drivers/db_driver.i
-
-# target to preprocess a source file
-src/drivers/db_driver.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/drivers/db_driver.cxx.i
-.PHONY : src/drivers/db_driver.cxx.i
-
-src/drivers/db_driver.s: src/drivers/db_driver.cxx.s
-
-.PHONY : src/drivers/db_driver.s
-
-# target to generate assembly for a file
-src/drivers/db_driver.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/drivers/db_driver.cxx.s
-.PHONY : src/drivers/db_driver.cxx.s
 
 src/drivers/network_driver.o: src/drivers/network_driver.cxx.o
 
@@ -991,7 +897,7 @@ src/drivers/network_driver.o: src/drivers/network_driver.cxx.o
 
 # target to build an object file
 src/drivers/network_driver.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/drivers/network_driver.cxx.o
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/drivers/network_driver.cxx.o
 .PHONY : src/drivers/network_driver.cxx.o
 
 src/drivers/network_driver.i: src/drivers/network_driver.cxx.i
@@ -1000,7 +906,7 @@ src/drivers/network_driver.i: src/drivers/network_driver.cxx.i
 
 # target to preprocess a source file
 src/drivers/network_driver.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/drivers/network_driver.cxx.i
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/drivers/network_driver.cxx.i
 .PHONY : src/drivers/network_driver.cxx.i
 
 src/drivers/network_driver.s: src/drivers/network_driver.cxx.s
@@ -1009,170 +915,89 @@ src/drivers/network_driver.s: src/drivers/network_driver.cxx.s
 
 # target to generate assembly for a file
 src/drivers/network_driver.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/drivers/network_driver.cxx.s
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/drivers/network_driver.cxx.s
 .PHONY : src/drivers/network_driver.cxx.s
 
-src/drivers/repl_driver.o: src/drivers/repl_driver.cxx.o
+src/drivers/ot_driver.o: src/drivers/ot_driver.cxx.o
 
-.PHONY : src/drivers/repl_driver.o
-
-# target to build an object file
-src/drivers/repl_driver.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/drivers/repl_driver.cxx.o
-.PHONY : src/drivers/repl_driver.cxx.o
-
-src/drivers/repl_driver.i: src/drivers/repl_driver.cxx.i
-
-.PHONY : src/drivers/repl_driver.i
-
-# target to preprocess a source file
-src/drivers/repl_driver.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/drivers/repl_driver.cxx.i
-.PHONY : src/drivers/repl_driver.cxx.i
-
-src/drivers/repl_driver.s: src/drivers/repl_driver.cxx.s
-
-.PHONY : src/drivers/repl_driver.s
-
-# target to generate assembly for a file
-src/drivers/repl_driver.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/drivers/repl_driver.cxx.s
-.PHONY : src/drivers/repl_driver.cxx.s
-
-src/pkg/arbiter.o: src/pkg/arbiter.cxx.o
-
-.PHONY : src/pkg/arbiter.o
+.PHONY : src/drivers/ot_driver.o
 
 # target to build an object file
-src/pkg/arbiter.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/pkg/arbiter.cxx.o
-.PHONY : src/pkg/arbiter.cxx.o
+src/drivers/ot_driver.cxx.o:
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/drivers/ot_driver.cxx.o
+.PHONY : src/drivers/ot_driver.cxx.o
 
-src/pkg/arbiter.i: src/pkg/arbiter.cxx.i
+src/drivers/ot_driver.i: src/drivers/ot_driver.cxx.i
 
-.PHONY : src/pkg/arbiter.i
+.PHONY : src/drivers/ot_driver.i
 
 # target to preprocess a source file
-src/pkg/arbiter.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/pkg/arbiter.cxx.i
-.PHONY : src/pkg/arbiter.cxx.i
+src/drivers/ot_driver.cxx.i:
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/drivers/ot_driver.cxx.i
+.PHONY : src/drivers/ot_driver.cxx.i
 
-src/pkg/arbiter.s: src/pkg/arbiter.cxx.s
+src/drivers/ot_driver.s: src/drivers/ot_driver.cxx.s
 
-.PHONY : src/pkg/arbiter.s
+.PHONY : src/drivers/ot_driver.s
 
 # target to generate assembly for a file
-src/pkg/arbiter.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/pkg/arbiter.cxx.s
-.PHONY : src/pkg/arbiter.cxx.s
+src/drivers/ot_driver.cxx.s:
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/drivers/ot_driver.cxx.s
+.PHONY : src/drivers/ot_driver.cxx.s
 
-src/pkg/election.o: src/pkg/election.cxx.o
+src/pkg/evaluator.o: src/pkg/evaluator.cxx.o
 
-.PHONY : src/pkg/election.o
+.PHONY : src/pkg/evaluator.o
 
 # target to build an object file
-src/pkg/election.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/pkg/election.cxx.o
-.PHONY : src/pkg/election.cxx.o
+src/pkg/evaluator.cxx.o:
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/pkg/evaluator.cxx.o
+.PHONY : src/pkg/evaluator.cxx.o
 
-src/pkg/election.i: src/pkg/election.cxx.i
+src/pkg/evaluator.i: src/pkg/evaluator.cxx.i
 
-.PHONY : src/pkg/election.i
+.PHONY : src/pkg/evaluator.i
 
 # target to preprocess a source file
-src/pkg/election.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/pkg/election.cxx.i
-.PHONY : src/pkg/election.cxx.i
+src/pkg/evaluator.cxx.i:
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/pkg/evaluator.cxx.i
+.PHONY : src/pkg/evaluator.cxx.i
 
-src/pkg/election.s: src/pkg/election.cxx.s
+src/pkg/evaluator.s: src/pkg/evaluator.cxx.s
 
-.PHONY : src/pkg/election.s
+.PHONY : src/pkg/evaluator.s
 
 # target to generate assembly for a file
-src/pkg/election.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/pkg/election.cxx.s
-.PHONY : src/pkg/election.cxx.s
+src/pkg/evaluator.cxx.s:
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/pkg/evaluator.cxx.s
+.PHONY : src/pkg/evaluator.cxx.s
 
-src/pkg/registrar.o: src/pkg/registrar.cxx.o
+src/pkg/garbler.o: src/pkg/garbler.cxx.o
 
-.PHONY : src/pkg/registrar.o
+.PHONY : src/pkg/garbler.o
 
 # target to build an object file
-src/pkg/registrar.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/pkg/registrar.cxx.o
-.PHONY : src/pkg/registrar.cxx.o
+src/pkg/garbler.cxx.o:
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/pkg/garbler.cxx.o
+.PHONY : src/pkg/garbler.cxx.o
 
-src/pkg/registrar.i: src/pkg/registrar.cxx.i
+src/pkg/garbler.i: src/pkg/garbler.cxx.i
 
-.PHONY : src/pkg/registrar.i
-
-# target to preprocess a source file
-src/pkg/registrar.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/pkg/registrar.cxx.i
-.PHONY : src/pkg/registrar.cxx.i
-
-src/pkg/registrar.s: src/pkg/registrar.cxx.s
-
-.PHONY : src/pkg/registrar.s
-
-# target to generate assembly for a file
-src/pkg/registrar.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/pkg/registrar.cxx.s
-.PHONY : src/pkg/registrar.cxx.s
-
-src/pkg/tallyer.o: src/pkg/tallyer.cxx.o
-
-.PHONY : src/pkg/tallyer.o
-
-# target to build an object file
-src/pkg/tallyer.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/pkg/tallyer.cxx.o
-.PHONY : src/pkg/tallyer.cxx.o
-
-src/pkg/tallyer.i: src/pkg/tallyer.cxx.i
-
-.PHONY : src/pkg/tallyer.i
+.PHONY : src/pkg/garbler.i
 
 # target to preprocess a source file
-src/pkg/tallyer.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/pkg/tallyer.cxx.i
-.PHONY : src/pkg/tallyer.cxx.i
+src/pkg/garbler.cxx.i:
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/pkg/garbler.cxx.i
+.PHONY : src/pkg/garbler.cxx.i
 
-src/pkg/tallyer.s: src/pkg/tallyer.cxx.s
+src/pkg/garbler.s: src/pkg/garbler.cxx.s
 
-.PHONY : src/pkg/tallyer.s
-
-# target to generate assembly for a file
-src/pkg/tallyer.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/pkg/tallyer.cxx.s
-.PHONY : src/pkg/tallyer.cxx.s
-
-src/pkg/voter.o: src/pkg/voter.cxx.o
-
-.PHONY : src/pkg/voter.o
-
-# target to build an object file
-src/pkg/voter.cxx.o:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/pkg/voter.cxx.o
-.PHONY : src/pkg/voter.cxx.o
-
-src/pkg/voter.i: src/pkg/voter.cxx.i
-
-.PHONY : src/pkg/voter.i
-
-# target to preprocess a source file
-src/pkg/voter.cxx.i:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/pkg/voter.cxx.i
-.PHONY : src/pkg/voter.cxx.i
-
-src/pkg/voter.s: src/pkg/voter.cxx.s
-
-.PHONY : src/pkg/voter.s
+.PHONY : src/pkg/garbler.s
 
 # target to generate assembly for a file
-src/pkg/voter.cxx.s:
-	$(MAKE) -f CMakeFiles/vote_app_lib.dir/build.make CMakeFiles/vote_app_lib.dir/src/pkg/voter.cxx.s
-.PHONY : src/pkg/voter.cxx.s
+src/pkg/garbler.cxx.s:
+	$(MAKE) -f CMakeFiles/yaos_app_lib.dir/build.make CMakeFiles/yaos_app_lib.dir/src/pkg/garbler.cxx.s
+.PHONY : src/pkg/garbler.cxx.s
 
 # Help Target
 help:
@@ -1185,14 +1010,12 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... check"
-	@echo "... vote_registrar"
-	@echo "... vote_arbiter"
-	@echo "... vote_voter"
-	@echo "... vote_app_lib"
-	@echo "... vote_app_lib_shared"
+	@echo "... ot_test"
+	@echo "... yaos_garbler"
+	@echo "... yaos_app_lib_shared"
 	@echo "... edit_cache"
-	@echo "... vote_tallyer"
 	@echo "... NightlyMemCheck"
+	@echo "... yaos_app_lib"
 	@echo "... NightlyTest"
 	@echo "... test"
 	@echo "... doc"
@@ -1212,6 +1035,7 @@ help:
 	@echo "... Nightly"
 	@echo "... NightlySubmit"
 	@echo "... install"
+	@echo "... yaos_evaluator"
 	@echo "... NightlyStart"
 	@echo "... ExperimentalCoverage"
 	@echo "... NightlyCoverage"
@@ -1225,12 +1049,9 @@ help:
 	@echo "... ContinuousSubmit"
 	@echo "... doctest_with_main"
 	@echo "... unit_tests"
-	@echo "... src-shared/config.o"
-	@echo "... src-shared/config.i"
-	@echo "... src-shared/config.s"
-	@echo "... src-shared/keyloaders.o"
-	@echo "... src-shared/keyloaders.i"
-	@echo "... src-shared/keyloaders.s"
+	@echo "... src-shared/circuit.o"
+	@echo "... src-shared/circuit.i"
+	@echo "... src-shared/circuit.s"
 	@echo "... src-shared/logger.o"
 	@echo "... src-shared/logger.i"
 	@echo "... src-shared/logger.s"
@@ -1240,48 +1061,33 @@ help:
 	@echo "... src-shared/util.o"
 	@echo "... src-shared/util.i"
 	@echo "... src-shared/util.s"
-	@echo "... src/cmd/arbiter.o"
-	@echo "... src/cmd/arbiter.i"
-	@echo "... src/cmd/arbiter.s"
-	@echo "... src/cmd/registrar.o"
-	@echo "... src/cmd/registrar.i"
-	@echo "... src/cmd/registrar.s"
-	@echo "... src/cmd/tallyer.o"
-	@echo "... src/cmd/tallyer.i"
-	@echo "... src/cmd/tallyer.s"
-	@echo "... src/cmd/voter.o"
-	@echo "... src/cmd/voter.i"
-	@echo "... src/cmd/voter.s"
+	@echo "... src/cmd/evaluator.o"
+	@echo "... src/cmd/evaluator.i"
+	@echo "... src/cmd/evaluator.s"
+	@echo "... src/cmd/garbler.o"
+	@echo "... src/cmd/garbler.i"
+	@echo "... src/cmd/garbler.s"
+	@echo "... src/cmd/ot_test.o"
+	@echo "... src/cmd/ot_test.i"
+	@echo "... src/cmd/ot_test.s"
 	@echo "... src/drivers/cli_driver.o"
 	@echo "... src/drivers/cli_driver.i"
 	@echo "... src/drivers/cli_driver.s"
 	@echo "... src/drivers/crypto_driver.o"
 	@echo "... src/drivers/crypto_driver.i"
 	@echo "... src/drivers/crypto_driver.s"
-	@echo "... src/drivers/db_driver.o"
-	@echo "... src/drivers/db_driver.i"
-	@echo "... src/drivers/db_driver.s"
 	@echo "... src/drivers/network_driver.o"
 	@echo "... src/drivers/network_driver.i"
 	@echo "... src/drivers/network_driver.s"
-	@echo "... src/drivers/repl_driver.o"
-	@echo "... src/drivers/repl_driver.i"
-	@echo "... src/drivers/repl_driver.s"
-	@echo "... src/pkg/arbiter.o"
-	@echo "... src/pkg/arbiter.i"
-	@echo "... src/pkg/arbiter.s"
-	@echo "... src/pkg/election.o"
-	@echo "... src/pkg/election.i"
-	@echo "... src/pkg/election.s"
-	@echo "... src/pkg/registrar.o"
-	@echo "... src/pkg/registrar.i"
-	@echo "... src/pkg/registrar.s"
-	@echo "... src/pkg/tallyer.o"
-	@echo "... src/pkg/tallyer.i"
-	@echo "... src/pkg/tallyer.s"
-	@echo "... src/pkg/voter.o"
-	@echo "... src/pkg/voter.i"
-	@echo "... src/pkg/voter.s"
+	@echo "... src/drivers/ot_driver.o"
+	@echo "... src/drivers/ot_driver.i"
+	@echo "... src/drivers/ot_driver.s"
+	@echo "... src/pkg/evaluator.o"
+	@echo "... src/pkg/evaluator.i"
+	@echo "... src/pkg/evaluator.s"
+	@echo "... src/pkg/garbler.o"
+	@echo "... src/pkg/garbler.i"
+	@echo "... src/pkg/garbler.s"
 .PHONY : help
 
 

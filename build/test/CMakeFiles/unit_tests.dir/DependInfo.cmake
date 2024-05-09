@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/workspaces/vote-Yuki-Zang/test/test_provided.cxx" "/workspaces/vote-Yuki-Zang/build/test/CMakeFiles/unit_tests.dir/test_provided.cxx.o"
+  "/workspaces/yaos-Yuki-Zang/test/test_provided.cxx" "/workspaces/yaos-Yuki-Zang/build/test/CMakeFiles/unit_tests.dir/test_provided.cxx.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -22,8 +22,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/workspaces/vote-Yuki-Zang/build/CMakeFiles/vote_app_lib.dir/DependInfo.cmake"
-  "/workspaces/vote-Yuki-Zang/build/CMakeFiles/vote_app_lib_shared.dir/DependInfo.cmake"
+  "/workspaces/yaos-Yuki-Zang/build/CMakeFiles/yaos_app_lib.dir/DependInfo.cmake"
+  "/workspaces/yaos-Yuki-Zang/build/CMakeFiles/yaos_app_lib_shared.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

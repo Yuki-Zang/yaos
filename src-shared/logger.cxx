@@ -10,6 +10,9 @@ void initLogger(logging::trivial::severity_level level) {
   logging::core::get()->add_global_attribute("Line",
                                              attrs::mutable_constant<int>(0));
 
+  // Exclude logs below the specified level
+  logging::core::get()->set_filter(logging::trivial::severity >= level);
+
   // A console log with severity, filename, line and message
   logging::add_console_log(
       std::clog,

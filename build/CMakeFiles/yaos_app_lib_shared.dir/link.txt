@@ -1,0 +1,2 @@
+/usr/bin/ar qc libyaos_app_lib_shared.a  CMakeFiles/yaos_app_lib_shared.dir/src-shared/circuit.cxx.o CMakeFiles/yaos_app_lib_shared.dir/src-shared/messages.cxx.o CMakeFiles/yaos_app_lib_shared.dir/src-shared/logger.cxx.o CMakeFiles/yaos_app_lib_shared.dir/src-shared/util.cxx.o
+/usr/bin/ranlib libyaos_app_lib_shared.a

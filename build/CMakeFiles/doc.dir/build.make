@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /workspaces/vote-Yuki-Zang
+CMAKE_SOURCE_DIR = /workspaces/yaos-Yuki-Zang
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /workspaces/vote-Yuki-Zang/build
+CMAKE_BINARY_DIR = /workspaces/yaos-Yuki-Zang/build
 
 # Utility rule file for doc.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /workspaces/vote-Yuki-Zang/build
 include CMakeFiles/doc.dir/progress.make
 
 CMakeFiles/doc:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/workspaces/vote-Yuki-Zang/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating API documentation with Doxygen (open ./html/index.html to view)."
-	/usr/bin/doxygen /workspaces/vote-Yuki-Zang/build/Doxyfile &> doxygen.log
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/workspaces/yaos-Yuki-Zang/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating API documentation with Doxygen (open ./html/index.html to view)."
+	/usr/bin/doxygen /workspaces/yaos-Yuki-Zang/build/Doxyfile &> doxygen.log
 
 doc: CMakeFiles/doc
 doc: CMakeFiles/doc.dir/build.make
@@ -72,6 +72,6 @@ CMakeFiles/doc.dir/clean:
 .PHONY : CMakeFiles/doc.dir/clean
 
 CMakeFiles/doc.dir/depend:
-	cd /workspaces/vote-Yuki-Zang/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /workspaces/vote-Yuki-Zang /workspaces/vote-Yuki-Zang /workspaces/vote-Yuki-Zang/build /workspaces/vote-Yuki-Zang/build /workspaces/vote-Yuki-Zang/build/CMakeFiles/doc.dir/DependInfo.cmake --color=$(COLOR)
+	cd /workspaces/yaos-Yuki-Zang/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /workspaces/yaos-Yuki-Zang /workspaces/yaos-Yuki-Zang /workspaces/yaos-Yuki-Zang/build /workspaces/yaos-Yuki-Zang/build /workspaces/yaos-Yuki-Zang/build/CMakeFiles/doc.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doc.dir/depend
 

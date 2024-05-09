@@ -39,14 +39,14 @@ std::string hex_decode(std::string s) {
 /**
  * Converts a byte block into an integer.
  */
-CryptoPP::Integer byteblock_to_integer(CryptoPP::SecByteBlock block) {
+CryptoPP::Integer byteblock_to_integer(const CryptoPP::SecByteBlock &block) {
   return CryptoPP::Integer(block, block.size());
 }
 
 /**
  * Converts an integer into a byte block.
  */
-CryptoPP::SecByteBlock integer_to_byteblock(CryptoPP::Integer x) {
+CryptoPP::SecByteBlock integer_to_byteblock(const CryptoPP::Integer &x) {
   size_t encodedSize = x.MinEncodedSize(CryptoPP::Integer::UNSIGNED);
   CryptoPP::SecByteBlock bytes(encodedSize);
   x.Encode(bytes.BytePtr(), encodedSize, CryptoPP::Integer::UNSIGNED);
@@ -59,29 +59,12 @@ CryptoPP::SecByteBlock integer_to_byteblock(CryptoPP::Integer x) {
 std::string byteblock_to_string(const CryptoPP::SecByteBlock &block) {
   return std::string(block.begin(), block.end());
 }
-
 /**
  * Converts a string into a byte block.
  */
 CryptoPP::SecByteBlock string_to_byteblock(const std::string &s) {
   CryptoPP::SecByteBlock block(reinterpret_cast<const byte *>(&s[0]), s.size());
   return block;
-}
-
-/**
- * Converts an integer to a string
- * Example: 123 -> "123"
- */
-std::string integer_to_string(CryptoPP::Integer x) {
-  return CryptoPP::IntToString(x);
-}
-
-/**
- * Converts a string to an integer
- * Example: "123" -> 123
- */
-CryptoPP::Integer string_to_integer(const std::string &s) {
-  return CryptoPP::Integer(s.c_str());
 }
 
 /**
@@ -99,14 +82,14 @@ void print_string_as_hex(std::string str) {
 /**
  * Prints contents as integer
  */
-void print_key_as_int(CryptoPP::SecByteBlock block) {
+void print_key_as_int(const CryptoPP::SecByteBlock &block) {
   std::cout << byteblock_to_integer(block) << std::endl;
 }
 
 /**
  * Prints contents as hex.
  */
-void print_key_as_hex(CryptoPP::SecByteBlock block) {
+void print_key_as_hex(const CryptoPP::SecByteBlock &block) {
   std::string result;
   CryptoPP::HexEncoder encoder(new CryptoPP::StringSink(result));
 
@@ -131,48 +114,23 @@ std::vector<std::string> string_split(std::string str, char delimiter) {
 }
 
 /**
- * Hash vote zkp
+ * Parse input to circuit
  */
-CryptoPP::Integer hash_vote_zkp(CryptoPP::Integer pk, CryptoPP::Integer a,
-                                CryptoPP::Integer b, CryptoPP::Integer a0_p,
-                                CryptoPP::Integer b0_p, CryptoPP::Integer a1_p,
-                                CryptoPP::Integer b1_p) {
-  std::string res;
-  res += CryptoPP::IntToString(pk);
-  res += CryptoPP::IntToString(a);
-  res += CryptoPP::IntToString(b);
-  res += CryptoPP::IntToString(a0_p);
-  res += CryptoPP::IntToString(b0_p);
-  res += CryptoPP::IntToString(a1_p);
-  res += CryptoPP::IntToString(b1_p);
+std::vector<int> parse_input(std::string input_file) {
+  std::string input_str;
+  CryptoPP::FileSource(input_file.c_str(), true,
+                       new CryptoPP::StringSink(input_str));
 
-  CryptoPP::SHA256 hash;
-  std::string encodedHex;
-  CryptoPP::HexEncoder encoder(new CryptoPP::StringSink(encodedHex));
-  CryptoPP::StringSource(
-      res, true,
-      new CryptoPP::HashFilter(hash, new CryptoPP::StringSink(encodedHex)));
-  return CryptoPP::Integer(("0x" + encodedHex).c_str());
-}
-
-/**
- * Hash partial decryption zkp
- */
-CryptoPP::Integer hash_dec_zkp(CryptoPP::Integer pk, CryptoPP::Integer a,
-                               CryptoPP::Integer b, CryptoPP::Integer u,
-                               CryptoPP::Integer v) {
-  std::string res;
-  res += CryptoPP::IntToString(pk);
-  res += CryptoPP::IntToString(a);
-  res += CryptoPP::IntToString(b);
-  res += CryptoPP::IntToString(u);
-  res += CryptoPP::IntToString(v);
-
-  CryptoPP::SHA256 hash;
-  std::string encodedHex;
-  CryptoPP::HexEncoder encoder(new CryptoPP::StringSink(encodedHex));
-  CryptoPP::StringSource(
-      res, true,
-      new CryptoPP::HashFilter(hash, new CryptoPP::StringSink(encodedHex)));
-  return CryptoPP::Integer(("0x" + encodedHex).c_str());
+  std::vector<int> res;
+  for (int i = 0; i < input_str.length(); i++) {
+    switch (input_str[i]) {
+    case '0':
+      res.push_back(0);
+      break;
+    case '1':
+      res.push_back(1);
+      break;
+    }
+  }
+  return res;
 }
