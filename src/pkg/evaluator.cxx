@@ -122,7 +122,7 @@ std::string EvaluatorClient::run(std::vector<int> input) {
     if (this->circuit.gates[i].type == 1){//this is an AND gate
         GarbledWire gw_output = evaluate_gate(garbled_tables[i], gwires_all[this->circuit.gates[i].lhs], gwires_all[this->circuit.gates[i].rhs]);
         gwires_all[this->circuit.gates[i].output] = gw_output;
-    } else if (this->circuit.gates[i].type == 2){//OR gate
+    } else if (this->circuit.gates[i].type == 2){//XOR gate
         SecByteBlock decrypted_entry(LABEL_LENGTH);
         CryptoPP::xorbuf(decrypted_entry, gwires_all[this->circuit.gates[i].lhs].value, gwires_all[this->circuit.gates[i].rhs].value, LABEL_LENGTH);
         GarbledWire gw_output;
